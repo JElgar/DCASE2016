@@ -8,10 +8,10 @@ from torch.nn import functional as F
 from torch.utils.data import DataLoader
 from torch.utils.data.dataset import Dataset
 from torch.optim.optimizer import Optimizer
-import torchaudio
 
 import click
 import pandas as pd
+import numpy as np
 
 
 class SpectrogramShape(NamedTuple):
@@ -26,16 +26,18 @@ else:
 
 
 @click.command()
-@click.option("--learning_rate")
-def main(count):
-    train_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=10)
+@click.option("--learning_rate", default=0.1)
+@click.option("--batch_size", default=10)
+def main(learning_rate, batch_size):
+    train_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
     model = CNN()
 
-    train_loader = torch.utils.data.DataLoader(data_loader)
-    optimizer = torch.optim.SGD(model.parameters(), learning_rate)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size)
+    optimizer = torch.optim.Adam(model.parameters(), learning_rate)
     criterion = nn.CrossEntropyLoss()
 
     trainer = Trainer(model, train_loader, criterion, optimizer, DEVICE)
+    trainer.train(50)
 
 
 class DCASE(Dataset):
@@ -47,22 +49,8 @@ class DCASE(Dataset):
         self._labels["label"] = self._labels.label.astype("category").cat.codes.astype(
             "int"
         )  # create categorical labels
-        self._clip_duration: int = clip_duration
+        self._clip_duration = clip_duration
         self._total_duration = 30  # DCASE audio length is 30s
-
-        self._sample_rate = 44100  # DCASE sampling rate is 44100
-
-        # creating melspec function
-        win_size = int(round(40 * self._sample_rate / 1e3))  # 40ms window length
-        self._spec_fn = torchaudio.transforms.MelSpectrogram(
-            sample_rate=self._sample_rate,
-            n_fft=win_size,
-            n_mels=60,
-            hop_length=win_size // 2,  # 50% overlapping windows
-            window_fn=torch.hamming_window,
-            power=2,
-            # normalized=True, This could be a touch rash
-        )
 
         self._data_len = len(self._labels)
 
@@ -71,29 +59,14 @@ class DCASE(Dataset):
         return SpectrogramShape(height=60, duration=self._clip_duration)
 
     def __getitem__(self, index):
-        # reading raw audio
+        # reading spectrograms
         filename, label = self._labels.iloc[index]
         filepath = self._root_dir / "audio" / filename
-        data_array, sample_rate = torchaudio.load(filepath)
+        spec = torch.from_numpy(np.load(filepath))
 
-        # make sure using correct sampling rate
-        assert sample_rate == self._sample_rate, (
-            "Sample rate doesn't match expected rate. "
-            "Can not create spectrogram as intended, likely an issue with data."
-        )
-        # creating spectrogram and splitting
-        spec = self._make_spec(data_array)
+        # splitting spec
         spec = self._trim(spec)
         return spec, label
-
-    def _make_spec(self, data_array: torch.Tensor) -> torch.Tensor:
-        """
-        Create spectrogram using data input
-        :param data_array: tensor containing raw audio of shape [1, 1323001 (sample_rate * audio length(30s))]
-        :return: tensor containing log mel spectrogram of shape [1, 60, 1501]
-        """
-        spec = self._spec_fn(data_array).log2()
-        return spec
 
     def _trim(self, spec: torch.Tensor) -> torch.Tensor:
         """
@@ -108,14 +81,15 @@ class DCASE(Dataset):
         for clip_idx in range(self._num_clips):
             start = clip_idx * time_interval
             end = start + time_interval
-            spec_clip = spec[:, :, start:end]
-            spec_clip = torch.squeeze(spec_clip)
+            spec_clip = spec[:, start:end]
+            # spec_clip = torch.squeeze(spec_clip)
             all_clips.append(spec_clip)
 
-        sequences = torch.stack(all_clips)
-        return sequences
+        specs = torch.stack(all_clips)
+        return specs
 
-    def get_num_clips(self) -> int:
+    @property
+    def num_clips(self) -> int:
         """
         Gets number of clips the raw audio has been split into
         :return: self._num_clips of type int
@@ -131,20 +105,39 @@ class CNN(nn.Module):
         super().__init__()
         self.conv1 = nn.Conv2d(
             in_channels=1,
-            out_channels=1,
+            out_channels=128,
             kernel_size=(5, 5),
             padding=(2, 2),
         )
         self.pool1 = nn.MaxPool2d(kernel_size=(5, 5), stride=(5, 5))
 
         self.conv2 = nn.Conv2d(
-            in_channels=1, out_channels=1, kernel_size=(5, 5), padding=(2, 2)
+            in_channels=128, out_channels=256, kernel_size=(5, 5), padding=(2, 2)
         )
+        # TODO change this!
+        self.pool2 = nn.MaxPool2d(kernel_size=(3, 30), stride=(3, 30))
+
+        # 1024
+        self.fc1 = nn.Linear(1024, 15)
+        self._initialise_layer(self.fc1)
 
     def forward(self, input_spectrograms: torch.Tensor):
         x = F.relu(self.conv1(input_spectrograms))
+        # 128 x 60 x 150
         x = self.pool1(x)
+        # 128 x 60 x 150
+        x = F.relu(self.conv2(x))
+        x = self.pool2(x)
+        x = x.flatten(start_dim=1)
+        x = F.relu(self.fc1(x))
         return x
+
+    @staticmethod
+    def _initialise_layer(layer):
+        if hasattr(layer, "bias"):
+            nn.init.zeros_(layer.bias)
+        if hasattr(layer, "weight"):
+            nn.init.kaiming_normal_(layer.weight)
 
 
 class Trainer:
@@ -166,7 +159,7 @@ class Trainer:
     def train(
         self,
         epochs: int,
-        print_frequency: int = 20,
+        print_frequency: int = 1,
         # log_frequency: int = 5,
         start_epoch: int = 0,
     ):
@@ -179,7 +172,13 @@ class Trainer:
                 data_load_end_time = time.time()
 
                 # Step
-                logits = self.model.forward(batch)
+                segments = torch.flatten(batch, end_dim=1)
+                segments = segments[:, None, :]
+                logits = self.model.forward(segments)
+
+                # Average segments for each clip
+                logits = torch.reshape(logits, (-1, 10, 15))
+                logits = logits.mean(1)
 
                 # Compute loss
                 loss = self.criterion(logits, labels)
