@@ -26,14 +26,16 @@ else:
 
 
 @click.command()
-@click.option("--learning_rate", default=0.1)
-@click.option("--batch_size", default=10)
+@click.option("--learning_rate", default=1e-1)
+@click.option("--batch_size", default=20)
 def main(learning_rate, batch_size):
     train_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
     model = CNN()
 
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size)
-    optimizer = torch.optim.Adam(model.parameters(), learning_rate)
+    train_loader = torch.utils.data.DataLoader(
+        train_dataset, batch_size=batch_size, shuffle=True
+    )
+    optimizer = torch.optim.SGD(model.parameters(), learning_rate)
     criterion = nn.CrossEntropyLoss()
 
     trainer = Trainer(model, train_loader, criterion, optimizer, DEVICE)
@@ -115,7 +117,7 @@ class CNN(nn.Module):
             in_channels=128, out_channels=256, kernel_size=(5, 5), padding=(2, 2)
         )
         # TODO change this!
-        self.pool2 = nn.MaxPool2d(kernel_size=(3, 30), stride=(3, 30))
+        self.pool2 = nn.AdaptiveMaxPool2d((4, 1))
 
         # 1024
         self.fc1 = nn.Linear(1024, 15)
@@ -165,6 +167,7 @@ class Trainer:
     ):
         self.model.train()
         for epoch in range(start_epoch, epochs):
+            self.model.train()
             data_load_start_time = time.time()
             for batch, labels in self.train_loader:
                 batch = batch.to(self.device)
@@ -174,13 +177,17 @@ class Trainer:
                 # Step
                 segments = torch.flatten(batch, end_dim=1)
                 segments = segments[:, None, :]
+                # print(f"{segments=}")
                 logits = self.model.forward(segments)
 
                 # Average segments for each clip
                 logits = torch.reshape(logits, (-1, 10, 15))
+                # print(f"Before mean {logits=}")
                 logits = logits.mean(1)
 
                 # Compute loss
+                # print(f"{logits=}")
+                # print(f"{labels=}")
                 loss = self.criterion(logits, labels)
                 loss.backward()
 
