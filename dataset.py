@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import NamedTuple
 import time
+from multiprocessing import cpu_count
 
 import torch
 from torch import nn
@@ -27,15 +28,19 @@ else:
 
 @click.command()
 @click.option("--learning_rate", default=1e-1)
-@click.option("--batch_size", default=20)
+@click.option("--batch_size", default=64)
 def main(learning_rate, batch_size):
     train_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
     model = CNN()
 
     train_loader = torch.utils.data.DataLoader(
-        train_dataset, batch_size=batch_size, shuffle=True
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        pin_memory=True,
+        num_workers=cpu_count(),
     )
-    optimizer = torch.optim.SGD(model.parameters(), learning_rate)
+    optimizer = torch.optim.Adam(model.parameters(), learning_rate)
     criterion = nn.CrossEntropyLoss()
 
     trainer = Trainer(model, train_loader, criterion, optimizer, DEVICE)
@@ -111,13 +116,17 @@ class CNN(nn.Module):
             kernel_size=(5, 5),
             padding=(2, 2),
         )
+        self._initialise_layer(self.conv1)
         self.pool1 = nn.MaxPool2d(kernel_size=(5, 5), stride=(5, 5))
 
         self.conv2 = nn.Conv2d(
             in_channels=128, out_channels=256, kernel_size=(5, 5), padding=(2, 2)
         )
+        self._initialise_layer(self.conv2)
+
         # TODO change this!
         self.pool2 = nn.AdaptiveMaxPool2d((4, 1))
+        # self.pool2 = nn.MaxPool2d(kernel_size=(3, 30), stride=(3, 30))
 
         # 1024
         self.fc1 = nn.Linear(1024, 15)
@@ -129,8 +138,13 @@ class CNN(nn.Module):
         x = self.pool1(x)
         # 128 x 60 x 150
         x = F.relu(self.conv2(x))
+        # print(x.shape)
+        # print("Pool 2")
         x = self.pool2(x)
+        # print(x.shape)
+        # print("Flatten")
         x = x.flatten(start_dim=1)
+        # print(x.shape)
         x = F.relu(self.fc1(x))
         return x
 
@@ -175,19 +189,30 @@ class Trainer:
                 data_load_end_time = time.time()
 
                 # Step
+                print(f"{batch=}")
+                print(f"{batch.shape=}")
                 segments = torch.flatten(batch, end_dim=1)
                 segments = segments[:, None, :]
-                # print(f"{segments=}")
                 logits = self.model.forward(segments)
+                print(f"{segments=}")
+                print(f"{segments.shape=}")
+                # print(f"{logits=}")
 
                 # Average segments for each clip
                 logits = torch.reshape(logits, (-1, 10, 15))
                 # print(f"Before mean {logits=}")
                 logits = logits.mean(1)
-
-                # Compute loss
                 # print(f"{logits=}")
                 # print(f"{labels=}")
+
+                # import sys
+                # sys.exit(0)
+
+                # Compute loss
+                print("Helllo!")
+                print(f"{logits=}")
+                print(f"{logits.shape=}")
+                print(f"{labels=}")
                 loss = self.criterion(logits, labels)
                 loss.backward()
 
