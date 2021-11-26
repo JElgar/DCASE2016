@@ -1,3 +1,4 @@
 ADL_DCASE_DATA/
 ADL_DCASE_DATA_AUDIO/
 .venv/
+logs/

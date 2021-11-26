@@ -27,7 +27,7 @@ else:
 
 
 @click.command()
-@click.option("--learning_rate", default=1e-1)
+@click.option("--learning_rate", default=1e-3)
 @click.option("--batch_size", default=64)
 def main(learning_rate, batch_size):
     train_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
@@ -115,12 +115,17 @@ class CNN(nn.Module):
             out_channels=128,
             kernel_size=(5, 5),
             padding=(2, 2),
+            # stride=(5, 5),
         )
         self._initialise_layer(self.conv1)
         self.pool1 = nn.MaxPool2d(kernel_size=(5, 5), stride=(5, 5))
 
         self.conv2 = nn.Conv2d(
-            in_channels=128, out_channels=256, kernel_size=(5, 5), padding=(2, 2)
+            in_channels=128,
+            out_channels=256,
+            kernel_size=(5, 5),
+            padding=(2, 2),
+            # stride=(5, 5),
         )
         self._initialise_layer(self.conv2)
 
@@ -189,13 +194,13 @@ class Trainer:
                 data_load_end_time = time.time()
 
                 # Step
-                print(f"{batch=}")
-                print(f"{batch.shape=}")
+                # print(f"{batch=}")
+                # print(f"{batch.shape=}")
                 segments = torch.flatten(batch, end_dim=1)
                 segments = segments[:, None, :]
                 logits = self.model.forward(segments)
-                print(f"{segments=}")
-                print(f"{segments.shape=}")
+                # print(f"{segments=}")
+                # print(f"{segments.shape=}")
                 # print(f"{logits=}")
 
                 # Average segments for each clip
@@ -209,11 +214,11 @@ class Trainer:
                 # sys.exit(0)
 
                 # Compute loss
-                print("Helllo!")
                 print(f"{logits=}")
-                print(f"{logits.shape=}")
-                print(f"{labels=}")
+                # print(f"{logits.shape=}")
+                # print(f"{labels=}")
                 loss = self.criterion(logits, labels)
+                print(f"{loss=}")
                 loss.backward()
 
                 # Optimize
