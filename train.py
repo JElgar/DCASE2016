@@ -34,13 +34,13 @@ parser.add_argument("--log-dir", default=Path("logs"), type=Path)
 parser.add_argument("--learning-rate", default=None, type=float, help="Learning rate")
 parser.add_argument(
     "--batch-size",
-    default=32,
+    default=64,
     type=int,
     help="Number of images within each mini-batch",
 )
 parser.add_argument(
     "--epochs",
-    default=50,
+    default=100,
     type=int,
     help="Number of epochs (passes through the entire dataset) to train for",
 )
@@ -100,11 +100,14 @@ def main(args):
     # train_dataset = torchvision.datasets.CIFAR10(
     #     args.dataset_root, train=True, download=True, transform=transform
     # )
-    train_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
-    test_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
+    dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
+    eval_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
     # test_dataset = torchvision.datasets.CIFAR10(
     #     args.dataset_root, train=False, download=False, transform=transforms.ToTensor()
     # )
+    train_dataset, test_dataset = torch.utils.data.random_split(
+        dataset, (int(len(dataset) * 0.8), int(len(dataset) * 0.2))
+    )
     train_loader = torch.utils.data.DataLoader(
         train_dataset,
         shuffle=True,
@@ -114,6 +117,13 @@ def main(args):
     )
     test_loader = torch.utils.data.DataLoader(
         test_dataset,
+        shuffle=True,
+        batch_size=args.batch_size,
+        pin_memory=True,
+        num_workers=args.worker_count,
+    )
+    eval_loader = torch.utils.data.DataLoader(
+        eval_dataset,
         shuffle=False,
         batch_size=args.batch_size,
         num_workers=args.worker_count,
@@ -135,24 +145,50 @@ def main(args):
     log_dir = get_summary_writer_log_dir(args)
     print(f"Writing logs to {log_dir}")
     summary_writer = SummaryWriter(str(log_dir), flush_secs=5)
-    trainer = Trainer(
+
+    non_full_trainer = NonFullTrainer(
         model,
         train_loader,
         test_loader,
-        train_dataset.num_clips,
+        dataset.num_clips,
         criterion,
         optimizer,
         summary_writer,
         DEVICE,
     )
+    non_full_trainer.train(
+        500,
+        args.val_frequency,
+        print_frequency=args.print_frequency,
+        log_frequency=args.log_frequency,
+    )
 
-    trainer.train(
+    full_dataset_loader = torch.utils.data.DataLoader(
+        test_dataset,
+        shuffle=True,
+        batch_size=args.batch_size,
+        pin_memory=True,
+        num_workers=args.worker_count,
+    )
+
+    full_trainer = FullTrainer(
+        model,
+        full_dataset_loader,
+        eval_loader,
+        dataset.num_clips,
+        criterion,
+        optimizer,
+        summary_writer,
+        DEVICE,
+    )
+    full_trainer.train(
         args.epochs,
         args.val_frequency,
         print_frequency=args.print_frequency,
         log_frequency=args.log_frequency,
     )
 
+    torch.save(model.state_dict(), "output_weights")
     summary_writer.close()
 
 
@@ -239,7 +275,6 @@ class CNN(nn.Module):
             out_channels=256,
             kernel_size=(5, 5),
             padding=(2, 2),
-            # stride=(5, 5),
         )
         self.initialise_layer(self.conv2)
         self.pool2 = nn.AdaptiveMaxPool2d((4, 1))
@@ -247,15 +282,20 @@ class CNN(nn.Module):
         self.fc1 = nn.Linear(1024, self.class_count)
         self.initialise_layer(self.fc1)
 
-        # self.batchNorm1 = nn.BatchNorm2d(128)
-        # self.batchNorm2 = nn.BatchNorm2d(256)
+        self.softmax = nn.Softmax(dim=1)
+
+        self.batchNorm1 = nn.BatchNorm2d(128)
+        self.batchNorm2 = nn.BatchNorm2d(256)
 
     def forward(self, input_spectrograms: torch.Tensor) -> torch.Tensor:
+        # TODO swap atchNorm and relu order
         x = F.relu(self.conv1(input_spectrograms))
+        x = self.batchNorm1(x)
         # 128 x 60 x 150
         x = self.pool1(x)
         # 128 x 60 x 150
         x = F.relu(self.conv2(x))
+        x = self.batchNorm2(x)
         # print(x.shape)
         # print("Pool 2")
         x = self.pool2(x)
@@ -264,7 +304,7 @@ class CNN(nn.Module):
         x = x.flatten(start_dim=1)
         # print(x.shape)
         x = F.relu(self.fc1(x))
-        x = F.log_softmax(x, dim=1)
+        x = self.softmax(x)
         return x
 
     @staticmethod
@@ -297,6 +337,165 @@ class Trainer:
         self.number_of_clips = number_of_clips
         self.step = 0
 
+    def print_metrics(self, epoch, accuracy, loss, data_load_time, step_time):
+        epoch_step = self.step % len(self.train_loader)
+        print(
+            f"epoch: [{epoch}], "
+            f"step: [{epoch_step}/{len(self.train_loader)}], "
+            f"batch loss: {loss:.5f}, "
+            f"batch accuracy: {accuracy * 100:2.2f}, "
+            f"data load time: "
+            f"{data_load_time:.5f}, "
+            f"step time: {step_time:.5f}"
+        )
+
+    def log_metrics(self, epoch, accuracy, loss, data_load_time, step_time):
+        self.summary_writer.add_scalar("epoch", epoch, self.step)
+        self.summary_writer.add_scalars("accuracy", {"train": accuracy}, self.step)
+        self.summary_writer.add_scalars(
+            "loss", {"train": float(loss.item())}, self.step
+        )
+        self.summary_writer.add_scalar("time/data", data_load_time, self.step)
+        self.summary_writer.add_scalar("time/data", step_time, self.step)
+
+    def validate(self) -> float:
+        results = {"preds": [], "labels": []}
+        total_loss = 0
+        self.model.eval()
+
+        # No need to track gradients for validation, we're not optimizing.
+        with torch.no_grad():
+            for batch, labels in self.val_loader:
+                batch = batch.to(self.device)
+                labels = labels.to(self.device)
+                segments = batch.view((-1, 1, 60, 150))  # TODO put this in function
+                logits = self.model(segments)
+                logits = torch.reshape(
+                    logits,
+                    (
+                        -1,
+                        self.number_of_clips,
+                        self.model.class_count,
+                    ),
+                )
+                logits = logits.mean(1)
+                loss = self.criterion(logits, labels)
+                total_loss += loss.item()
+                preds = logits.argmax(dim=-1).cpu().numpy()
+                results["preds"].extend(list(preds))
+                results["labels"].extend(list(labels.cpu().numpy()))
+
+        accuracy = compute_accuracy(
+            np.array(results["labels"]), np.array(results["preds"])
+        )
+        average_loss = total_loss / len(self.val_loader)
+
+        self.summary_writer.add_scalars("accuracy", {"test": accuracy}, self.step)
+        for key, value in all_classes_accuracy(
+            np.array(results["labels"]), np.array(results["preds"])
+        ).items():
+            self.summary_writer.add_scalars(
+                f"class_accuracy_{key}", {"test": value}, self.step
+            )
+        self.summary_writer.add_scalars("loss", {"test": average_loss}, self.step)
+        print(f"validation loss: {average_loss:.5f}, accuracy: {accuracy * 100:2.2f}")
+        print(
+            f"All classes accuracy: {all_classes_accuracy(np.array(results['labels']), np.array(results['preds'])).items()}"
+        )
+
+        return accuracy
+
+
+class NonFullTrainer(Trainer):
+    def train(
+        self,
+        epochs: int,
+        val_frequency: int = 5,
+        print_frequency: int = 20,
+        log_frequency: int = 5,
+        start_epoch: int = 0,
+    ):
+        self.model.train()
+
+        current_weights = self.model.state_dict()
+        current_accuracy = 0
+        current_best_accuracy = 0
+        epochs_since_improvement = 0
+
+        for epoch in range(start_epoch, epochs):
+            if epochs_since_improvement > 100:
+                break
+            self.model.train()
+            data_load_start_time = time.time()
+            for batch, labels in self.train_loader:
+                batch = batch.to(self.device)
+                labels = labels.to(self.device)
+                data_load_end_time = time.time()
+
+                segments = batch.view((-1, 1, 60, 150))
+                logits = self.model.forward(segments)
+
+                logits = torch.reshape(
+                    logits,
+                    (
+                        -1,
+                        self.number_of_clips,
+                        self.model.class_count,
+                    ),
+                )
+                logits = logits.mean(1)
+                # for index, item in enumerate(logits[0]):
+                # print(f"My prediction for class {index} is: {item}")
+                # print(logits.shape)
+
+                loss = self.criterion(logits, labels)
+                # print(labels)
+                # print(labels.shape)
+                # print(loss)
+                loss.backward()
+
+                ## TASK 12: Step the optimizer and then zero out the gradient buffers.
+                self.optimizer.step()
+                self.optimizer.zero_grad()
+
+                with torch.no_grad():
+                    preds = logits.argmax(-1)
+                    accuracy = compute_accuracy(labels, preds)
+
+                data_load_time = data_load_end_time - data_load_start_time
+                step_time = time.time() - data_load_end_time
+                if ((self.step + 1) % log_frequency) == 0:
+                    self.log_metrics(epoch, accuracy, loss, data_load_time, step_time)
+                if ((self.step + 1) % print_frequency) == 0:
+                    self.print_metrics(epoch, accuracy, loss, data_load_time, step_time)
+
+                self.step += 1
+                data_load_start_time = time.time()
+
+            self.summary_writer.add_scalar("epoch", epoch, self.step)
+            if ((epoch + 1) % val_frequency) == 0:
+                accuracy = self.validate()
+                if accuracy > current_accuracy:
+                    print("Improvement, weights saved")
+                    current_weights = self.model.state_dict()
+                    current_accuracy = accuracy
+                else:
+                    print("No imporvement, using old weights")
+                    self.model.load_state_dict(current_weights)
+
+                if current_accuracy <= current_best_accuracy:
+                    print(
+                        f"No overall imporvement over current best {current_best_accuracy}, epoch since last imporvement: {epochs_since_improvement}"
+                    )
+                    epochs_since_improvement += 1
+                else:
+                    current_best_accuracy = current_accuracy
+                # self.validate() will put the model in validation mode,
+                # so we have to switch back to train mode afterwards
+                self.model.train()
+
+
+class FullTrainer(Trainer):
     def train(
         self,
         epochs: int,
@@ -361,72 +560,6 @@ class Trainer:
                 # so we have to switch back to train mode afterwards
                 self.model.train()
 
-    def print_metrics(self, epoch, accuracy, loss, data_load_time, step_time):
-        epoch_step = self.step % len(self.train_loader)
-        print(
-            f"epoch: [{epoch}], "
-            f"step: [{epoch_step}/{len(self.train_loader)}], "
-            f"batch loss: {loss:.5f}, "
-            f"batch accuracy: {accuracy * 100:2.2f}, "
-            f"data load time: "
-            f"{data_load_time:.5f}, "
-            f"step time: {step_time:.5f}"
-        )
-
-    def log_metrics(self, epoch, accuracy, loss, data_load_time, step_time):
-        self.summary_writer.add_scalar("epoch", epoch, self.step)
-        self.summary_writer.add_scalars("accuracy", {"train": accuracy}, self.step)
-        self.summary_writer.add_scalars(
-            "loss", {"train": float(loss.item())}, self.step
-        )
-        self.summary_writer.add_scalar("time/data", data_load_time, self.step)
-        self.summary_writer.add_scalar("time/data", step_time, self.step)
-
-    def validate(self):
-        results = {"preds": [], "labels": []}
-        total_loss = 0
-        self.model.eval()
-
-        # No need to track gradients for validation, we're not optimizing.
-        with torch.no_grad():
-            for batch, labels in self.val_loader:
-                batch = batch.to(self.device)
-                labels = labels.to(self.device)
-                segments = batch.view((-1, 1, 60, 150))  # TODO put this in function
-                logits = self.model(segments)
-                logits = torch.reshape(
-                    logits,
-                    (
-                        -1,
-                        self.number_of_clips,
-                        self.model.class_count,
-                    ),
-                )
-                logits = logits.mean(1)
-                loss = self.criterion(logits, labels)
-                total_loss += loss.item()
-                preds = logits.argmax(dim=-1).cpu().numpy()
-                results["preds"].extend(list(preds))
-                results["labels"].extend(list(labels.cpu().numpy()))
-
-        accuracy = compute_accuracy(
-            np.array(results["labels"]), np.array(results["preds"])
-        )
-        average_loss = total_loss / len(self.val_loader)
-
-        self.summary_writer.add_scalars("accuracy", {"test": accuracy}, self.step)
-        for key, value in all_classes_accuracy(
-            np.array(results["labels"]), np.array(results["preds"])
-        ).items():
-            self.summary_writer.add_scalars(
-                f"class_accuracy_{key}", {"test": value}, self.step
-            )
-        self.summary_writer.add_scalars("loss", {"test": average_loss}, self.step)
-        print(f"validation loss: {average_loss:.5f}, accuracy: {accuracy * 100:2.2f}")
-        print(
-            f"All classes accuracy: {all_classes_accuracy(np.array(results['labels']), np.array(results['preds'])).items()}"
-        )
-
 
 def compute_accuracy(
     labels: Union[torch.Tensor, np.ndarray], preds: Union[torch.Tensor, np.ndarray]
@@ -451,8 +584,12 @@ def class_accuracy(
     assert len(labels) == len(class_mask)
     preds = torch.Tensor(preds)
     labels = torch.Tensor(labels)
+
+    actual_number_of_class = (labels == class_mask).sum()
+    if actual_number_of_class == 0:
+        return float(-1)
     return float(((labels == preds) & (labels == class_mask)).sum()) / float(
-        (labels == class_mask).sum()
+        actual_number_of_class
     )
 
 
