@@ -74,12 +74,6 @@ parser.add_argument("--data-aug-brightness", type=float, default=0)
 parser.add_argument("--dropout", type=float, default=0)
 
 
-class ImageShape(NamedTuple):
-    height: int
-    width: int
-    channels: int
-
-
 if torch.cuda.is_available():
     DEVICE = torch.device("cuda")
 else:
@@ -106,7 +100,7 @@ def main(args):
     #     args.dataset_root, train=False, download=False, transform=transforms.ToTensor()
     # )
     train_dataset, test_dataset = torch.utils.data.random_split(
-        dataset, (int(len(dataset) * 0.8), int(len(dataset) * 0.2))
+        dataset, (int(len(dataset) * 0.7), int(len(dataset) * 0.3))
     )
     train_loader = torch.utils.data.DataLoader(
         train_dataset,
@@ -157,7 +151,7 @@ def main(args):
         DEVICE,
     )
     non_full_trainer.train(
-        500,
+        250,
         args.val_frequency,
         print_frequency=args.print_frequency,
         log_frequency=args.log_frequency,
@@ -257,7 +251,6 @@ class CNN(nn.Module):
         self, height: int, width: int, channels: int, class_count: int, dropout: float
     ):
         super().__init__()
-        self.input_shape = ImageShape(height=height, width=width, channels=channels)
         self.class_count = class_count
 
         self.dropout = nn.Dropout(dropout)
@@ -303,7 +296,7 @@ class CNN(nn.Module):
         # print("Flatten")
         x = x.flatten(start_dim=1)
         # print(x.shape)
-        x = F.relu(self.fc1(x))
+        x = self.fc1(x)
         x = self.softmax(x)
         return x
 

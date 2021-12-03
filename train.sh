@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #SBATCH --partition gpu
 #SBATCH --account comsm0045
-#SBATCH --mem 64GB
+#SBATCH --reservation=comsm0045-coursework
+#SBATCH --mem 100GB
 #SBATCH --gres gpu:1
 
 # get rid of any modules already loaded
