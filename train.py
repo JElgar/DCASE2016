@@ -297,7 +297,7 @@ class CNN(nn.Module):
         x = x.flatten(start_dim=1)
         # print(x.shape)
         x = self.fc1(x)
-        x = self.softmax(x)
+        # x = self.softmax(x)
         return x
 
     @staticmethod
