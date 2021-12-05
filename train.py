@@ -46,7 +46,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--val-frequency",
-    default=2,
+    default=5,
     type=int,
     help="How frequently to test the model on the validation set in number of epochs",
 )
@@ -480,7 +480,7 @@ class NonFullTrainer(Trainer):
                     print(
                         f"No overall imporvement over current best {current_best_accuracy}, epoch since last imporvement: {epochs_since_improvement}"
                     )
-                    epochs_since_improvement += 1
+                    epochs_since_improvement += val_frequency
                 else:
                     current_best_accuracy = current_accuracy
                 # self.validate() will put the model in validation mode,
