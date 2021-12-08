@@ -31,6 +31,10 @@ Fix stuff
 
 5216733 - 12 frequency bands
 5216742 - 12 frequency bands plus 2 layers
+5216779 - 12 frequency bands 1e-4 learning rate full training
+5216811 - 12 frequency bands 1e-4 learning rate full training removed relu 200 full train epohs
+5216891 - 12 frequency bands 1e-4 learning rate full training removed relu 100 full train epohs
+5216924 - 12 frequency bands 1e-3 learning rate full training removed relu 100 full train epohs
 
 
 

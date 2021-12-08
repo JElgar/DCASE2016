@@ -164,7 +164,7 @@ def main(args):
         pin_memory=True,
     )
 
-    optimizer = torch.optim.Adam(model.parameters(), 1e-5)
+    optimizer = torch.optim.Adam(model.parameters(), 1e-4)
 
     full_trainer = FullTrainer(
         model,
@@ -299,7 +299,7 @@ class CNN(nn.Module):
         # print("Flatten")
         x = x.flatten(start_dim=1)
         # print(x.shape)
-        x = F.relu(self.fc1(x))
+        x = self.fc1(x)
         # x = F.relu(self.fc2(x))
         # x = self.softmax(x)
         return x
