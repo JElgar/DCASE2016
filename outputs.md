@@ -30,7 +30,7 @@ Fix stuff
 5216686 - Dropout 1%
 
 5216733 - 12 frequency bands
-
+5216742 - 12 frequency bands plus 2 layers
 
 
 

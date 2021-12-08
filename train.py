@@ -271,11 +271,15 @@ class CNN(nn.Module):
         self.initialise_layer(self.conv2)
         self.pool2 = nn.AdaptiveMaxPool2d((12, 1))
 
-        self.fc1 = nn.Linear(3072, 2000)
+        # 1 layer
+        self.fc1 = nn.Linear(3072, self.class_count)
         self.initialise_layer(self.fc1)
 
-        self.fc2 = nn.Linear(2000, self.class_count)
-        self.initialise_layer(self.fc1)
+        # 2 layers
+        # self.fc1 = nn.Linear(3072, 2000)
+        # self.initialise_layer(self.fc1)
+        # self.fc2 = nn.Linear(2000, self.class_count)
+        # self.initialise_layer(self.fc1)
 
         self.batchNorm1 = nn.BatchNorm2d(128)
         self.batchNorm2 = nn.BatchNorm2d(256)
@@ -296,7 +300,7 @@ class CNN(nn.Module):
         x = x.flatten(start_dim=1)
         # print(x.shape)
         x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
+        # x = F.relu(self.fc2(x))
         # x = self.softmax(x)
         return x
 
