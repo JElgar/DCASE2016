@@ -27,3 +27,10 @@ Fix stuff
 5216293 - 1e-5 learning rate for full training
 
 5216629 - Dropout 20%
+5216686 - Dropout 1%
+
+5216733 - 12 frequency bands
+
+
+
+

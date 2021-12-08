@@ -41,7 +41,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--epochs",
-    default=100,
+    default=200,
     type=int,
     help="Number of epochs (passes through the entire dataset) to train for",
 )
@@ -252,7 +252,7 @@ class CNN(nn.Module):
         super().__init__()
         self.class_count = class_count
 
-        self.dropout = nn.Dropout(dropout)
+        # self.dropout = nn.Dropout(dropout)
         self.conv1 = nn.Conv2d(
             in_channels=1,
             out_channels=128,
@@ -269,12 +269,13 @@ class CNN(nn.Module):
             padding=(2, 2),
         )
         self.initialise_layer(self.conv2)
-        self.pool2 = nn.AdaptiveMaxPool2d((4, 1))
+        self.pool2 = nn.AdaptiveMaxPool2d((12, 1))
 
-        self.fc1 = nn.Linear(1024, self.class_count)
+        self.fc1 = nn.Linear(3072, 2000)
         self.initialise_layer(self.fc1)
 
-        self.softmax = nn.Softmax(dim=1)
+        self.fc2 = nn.Linear(2000, self.class_count)
+        self.initialise_layer(self.fc1)
 
         self.batchNorm1 = nn.BatchNorm2d(128)
         self.batchNorm2 = nn.BatchNorm2d(256)
@@ -283,7 +284,6 @@ class CNN(nn.Module):
         # TODO swap atchNorm and relu order
         x = F.relu(self.conv1(input_spectrograms))
         x = self.batchNorm1(x)
-        x = self.dropout(x)
         # 128 x 60 x 150
         x = self.pool1(x)
         # 128 x 60 x 150
@@ -292,12 +292,11 @@ class CNN(nn.Module):
         # print(x.shape)
         # print("Pool 2")
         x = self.pool2(x)
-        # print(x.shape)
         # print("Flatten")
         x = x.flatten(start_dim=1)
-        x = self.dropout(x)
         # print(x.shape)
-        x = self.fc1(x)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
         # x = self.softmax(x)
         return x
 
