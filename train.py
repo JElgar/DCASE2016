@@ -2,6 +2,7 @@
 import time
 from multiprocessing import cpu_count
 from typing import Union, NamedTuple
+import math
 
 import torch
 from torch._C import Size, wait
@@ -94,13 +95,14 @@ def main(args):
     # train_dataset = torchvision.datasets.CIFAR10(
     #     args.dataset_root, train=True, download=True, transform=transform
     # )
+    full_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
     dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
-    eval_dataset = DCASE("ADL_DCASE_DATA/development", clip_duration=3)
+    eval_dataset = DCASE("ADL_DCASE_DATA/evaluation", clip_duration=3)
     # test_dataset = torchvision.datasets.CIFAR10(
     #     args.dataset_root, train=False, download=False, transform=transforms.ToTensor()
     # )
     train_dataset, test_dataset = torch.utils.data.random_split(
-        dataset, (int(len(dataset) * 0.7), int(len(dataset) * 0.3))
+        dataset, (math.floor(len(dataset) * 0.7), math.ceil(len(dataset) * 0.3))
     )
     train_loader = torch.utils.data.DataLoader(
         train_dataset,
@@ -116,21 +118,11 @@ def main(args):
         pin_memory=True,
         num_workers=args.worker_count,
     )
-    eval_loader = torch.utils.data.DataLoader(
-        eval_dataset,
-        shuffle=False,
-        batch_size=args.batch_size,
-        num_workers=args.worker_count,
-        pin_memory=True,
-    )
 
-    model = CNN(
-        height=32, width=32, channels=3, class_count=CLASS_COUNT, dropout=args.dropout
-    )
+    model = CNN(class_count=CLASS_COUNT, dropout=0.01)
 
     criterion = nn.CrossEntropyLoss()
 
-    ## TASK 11: Define the optimizer
     if args.learning_rate is None:
         optimizer = torch.optim.Adam(model.parameters())
     else:
@@ -158,12 +150,21 @@ def main(args):
     )
 
     full_dataset_loader = torch.utils.data.DataLoader(
-        test_dataset,
+        full_dataset,
         shuffle=True,
         batch_size=args.batch_size,
         pin_memory=True,
         num_workers=args.worker_count,
     )
+    eval_loader = torch.utils.data.DataLoader(
+        eval_dataset,
+        shuffle=False,
+        batch_size=args.batch_size,
+        num_workers=args.worker_count,
+        pin_memory=True,
+    )
+
+    optimizer = torch.optim.Adam(model.parameters(), 1e-5)
 
     full_trainer = FullTrainer(
         model,
@@ -247,9 +248,7 @@ class DCASE(Dataset):
 
 
 class CNN(nn.Module):
-    def __init__(
-        self, height: int, width: int, channels: int, class_count: int, dropout: float
-    ):
+    def __init__(self, class_count: int, dropout: float):
         super().__init__()
         self.class_count = class_count
 
@@ -284,6 +283,7 @@ class CNN(nn.Module):
         # TODO swap atchNorm and relu order
         x = F.relu(self.conv1(input_spectrograms))
         x = self.batchNorm1(x)
+        x = self.dropout(x)
         # 128 x 60 x 150
         x = self.pool1(x)
         # 128 x 60 x 150
@@ -295,6 +295,7 @@ class CNN(nn.Module):
         # print(x.shape)
         # print("Flatten")
         x = x.flatten(start_dim=1)
+        x = self.dropout(x)
         # print(x.shape)
         x = self.fc1(x)
         # x = self.softmax(x)
@@ -329,8 +330,16 @@ class Trainer:
         self.summary_writer = summary_writer
         self.number_of_clips = number_of_clips
         self.step = 0
+        self.training_name = ""
 
-    def print_metrics(self, epoch, accuracy, loss, data_load_time, step_time):
+    def print_metrics(
+        self,
+        epoch,
+        accuracy,
+        loss,
+        data_load_time,
+        step_time,
+    ):
         epoch_step = self.step % len(self.train_loader)
         print(
             f"epoch: [{epoch}], "
@@ -343,13 +352,19 @@ class Trainer:
         )
 
     def log_metrics(self, epoch, accuracy, loss, data_load_time, step_time):
-        self.summary_writer.add_scalar("epoch", epoch, self.step)
-        self.summary_writer.add_scalars("accuracy", {"train": accuracy}, self.step)
+        self.summary_writer.add_scalar(f"{self.training_name}_epoch", epoch, self.step)
         self.summary_writer.add_scalars(
-            "loss", {"train": float(loss.item())}, self.step
+            f"{self.training_name}_accuracy", {"train": accuracy}, self.step
         )
-        self.summary_writer.add_scalar("time/data", data_load_time, self.step)
-        self.summary_writer.add_scalar("time/data", step_time, self.step)
+        self.summary_writer.add_scalars(
+            f"{self.training_name}_loss", {"train": float(loss.item())}, self.step
+        )
+        self.summary_writer.add_scalar(
+            f"{self.training_name}_time/data", data_load_time, self.step
+        )
+        self.summary_writer.add_scalar(
+            f"{self.training_name}_time/data", step_time, self.step
+        )
 
     def validate(self) -> float:
         results = {"preds": [], "labels": []}
@@ -383,14 +398,18 @@ class Trainer:
         )
         average_loss = total_loss / len(self.val_loader)
 
-        self.summary_writer.add_scalars("accuracy", {"test": accuracy}, self.step)
+        self.summary_writer.add_scalars(
+            f"{self.training_name}_accuracy", {"test": accuracy}, self.step
+        )
         for key, value in all_classes_accuracy(
             np.array(results["labels"]), np.array(results["preds"])
         ).items():
             self.summary_writer.add_scalars(
-                f"class_accuracy_{key}", {"test": value}, self.step
+                f"{self.training_name}_class_accuracy_{key}", {"test": value}, self.step
             )
-        self.summary_writer.add_scalars("loss", {"test": average_loss}, self.step)
+        self.summary_writer.add_scalars(
+            f"{self.training_name}_loss", {"test": average_loss}, self.step
+        )
         print(f"validation loss: {average_loss:.5f}, accuracy: {accuracy * 100:2.2f}")
         print(
             f"All classes accuracy: {all_classes_accuracy(np.array(results['labels']), np.array(results['preds'])).items()}"
@@ -400,6 +419,10 @@ class Trainer:
 
 
 class NonFullTrainer(Trainer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.training_name = "non_full"
+
     def train(
         self,
         epochs: int,
@@ -458,14 +481,22 @@ class NonFullTrainer(Trainer):
                 data_load_time = data_load_end_time - data_load_start_time
                 step_time = time.time() - data_load_end_time
                 if ((self.step + 1) % log_frequency) == 0:
-                    self.log_metrics(epoch, accuracy, loss, data_load_time, step_time)
+                    self.log_metrics(
+                        epoch,
+                        accuracy,
+                        loss,
+                        data_load_time,
+                        step_time,
+                    )
                 if ((self.step + 1) % print_frequency) == 0:
                     self.print_metrics(epoch, accuracy, loss, data_load_time, step_time)
 
                 self.step += 1
                 data_load_start_time = time.time()
 
-            self.summary_writer.add_scalar("epoch", epoch, self.step)
+            self.summary_writer.add_scalar(
+                f"{self.training_name}_epoch", epoch, self.step
+            )
             if ((epoch + 1) % val_frequency) == 0:
                 accuracy = self.validate()
                 if accuracy > current_accuracy:
@@ -475,6 +506,9 @@ class NonFullTrainer(Trainer):
                 else:
                     print("No imporvement, using old weights")
                     self.model.load_state_dict(current_weights)
+                    if epoch >= 100:
+                        print("No improvement and 100 epochs done, breaking")
+                        break
 
                 if current_accuracy <= current_best_accuracy:
                     print(
@@ -489,6 +523,10 @@ class NonFullTrainer(Trainer):
 
 
 class FullTrainer(Trainer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.training_name = "full"
+
     def train(
         self,
         epochs: int,
@@ -546,7 +584,9 @@ class FullTrainer(Trainer):
                 self.step += 1
                 data_load_start_time = time.time()
 
-            self.summary_writer.add_scalar("epoch", epoch, self.step)
+            self.summary_writer.add_scalar(
+                f"{self.training_name}_epoch", epoch, self.step
+            )
             if ((epoch + 1) % val_frequency) == 0:
                 self.validate()
                 # self.validate() will put the model in validation mode,
