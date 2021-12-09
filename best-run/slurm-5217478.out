@@ -1,0 +1,1139 @@
+Writing logs to logs/CNN_bn_dropout=0_bs=64_lr=None_momentum=0.9_brightness=0_run_0
+epoch: [0], step: [9/13], batch loss: 3.73804, batch accuracy: 40.62, data load time: 0.00203, step time: 0.30209
+epoch: [1], step: [6/13], batch loss: 2.09378, batch accuracy: 37.50, data load time: 0.00205, step time: 0.30203
+epoch: [2], step: [3/13], batch loss: 1.31580, batch accuracy: 59.38, data load time: 0.00207, step time: 0.30208
+epoch: [3], step: [0/13], batch loss: 1.10361, batch accuracy: 60.94, data load time: 1.02298, step time: 0.30444
+epoch: [3], step: [10/13], batch loss: 0.92601, batch accuracy: 76.56, data load time: 0.00206, step time: 0.30185
+epoch: [4], step: [7/13], batch loss: 1.18256, batch accuracy: 57.81, data load time: 0.00207, step time: 0.30200
+Get all class accuracies
+validation loss: 1.03980, accuracy: 69.80
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.3076923076923077), (1, 0.6875), (2, 1.0), (3, 0.76), (4, 0.9473684210526315), (5, 0.6538461538461539), (6, 0.5238095238095238), (7, 0.6521739130434783), (8, 0.7777777777777778), (9, 0.9565217391304348), (10, 0.9), (11, 0.19047619047619047), (12, 0.5925925925925926), (13, 0.6153846153846154), (14, 0.8636363636363636)])
+Confussion matrix: [[ 8.  1.  2.  0.  4.  1.  0.  0.  4.  0.  0.  0.  2.  0.  4.]
+ [ 0. 11.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4.  1.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  2.  0. 19.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  3.]
+ [ 0.  0.  1.  0. 18.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  2.  0.  0. 17.  0.  1.  0.  0.  2.  0.  3.  0.  0.]
+ [ 0.  0.  8.  0.  0.  0. 11.  0.  0.  1.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  6.  0. 15.  1.  0.  1.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0. 14.  0.  0.  0.  1.  0.  3.]
+ [ 0.  0.  1.  0.  0.  0.  0.  0.  0. 22.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  2.  0.  1.  0.  0. 27.  0.  0.  0.  0.]
+ [ 2.  0.  0.  0.  2.  5.  1.  0.  3.  0.  1.  4.  2.  1.  0.]
+ [ 0.  0.  0.  0.  5.  2.  0.  0.  0.  0.  0.  4. 16.  0.  0.]
+ [ 0.  5.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 16.  3.]
+ [ 0.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 19.]]
+Improvement, weights saved
+epoch: [5], step: [4/13], batch loss: 0.76389, batch accuracy: 82.81, data load time: 0.00318, step time: 0.30412
+epoch: [6], step: [1/13], batch loss: 0.76053, batch accuracy: 73.44, data load time: 0.00206, step time: 0.30209
+epoch: [6], step: [11/13], batch loss: 0.71261, batch accuracy: 73.44, data load time: 0.00211, step time: 0.30214
+epoch: [7], step: [8/13], batch loss: 0.74624, batch accuracy: 75.00, data load time: 0.00200, step time: 0.30195
+epoch: [8], step: [5/13], batch loss: 0.47104, batch accuracy: 85.94, data load time: 0.00203, step time: 0.30218
+epoch: [9], step: [2/13], batch loss: 0.44988, batch accuracy: 85.94, data load time: 0.00214, step time: 0.30207
+epoch: [9], step: [12/13], batch loss: 0.43651, batch accuracy: 90.20, data load time: 0.00158, step time: 0.24042
+Get all class accuracies
+validation loss: 0.53503, accuracy: 80.06
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.9615384615384616), (1, 0.6875), (2, 0.9285714285714286), (3, 1.0), (4, 0.9473684210526315), (5, 0.6153846153846154), (6, 0.8095238095238095), (7, 0.7391304347826086), (8, 0.6666666666666666), (9, 0.9565217391304348), (10, 1.0), (11, 0.38095238095238093), (12, 0.5185185185185185), (13, 0.7307692307692307), (14, 0.9545454545454546)])
+Confussion matrix: [[25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0. 11.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  3.  1.]
+ [ 0.  0. 26.  0.  0.  0.  2.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 2.  0.  1.  0.  0. 16.  0.  0.  0.  0.  6.  0.  1.  0.  0.]
+ [ 0.  0.  3.  0.  0.  0. 17.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 17.  0.  0.  6.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  1.  2. 12.  0.  0.  0.  0.  0.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1.  0. 22.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 4.  0.  0.  0.  0.  0.  0.  0.  1.  0.  5.  8.  3.  0.  0.]
+ [ 4.  0.  0.  0.  3.  0.  0.  0.  0.  0.  1.  5. 14.  0.  0.]
+ [ 0.  2.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 19.  3.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0. 21.]]
+Improvement, weights saved
+epoch: [10], step: [9/13], batch loss: 0.45962, batch accuracy: 79.69, data load time: 0.00206, step time: 0.30206
+epoch: [11], step: [6/13], batch loss: 0.33408, batch accuracy: 90.62, data load time: 0.00237, step time: 0.30235
+epoch: [12], step: [3/13], batch loss: 0.17896, batch accuracy: 92.19, data load time: 0.00217, step time: 0.30198
+epoch: [13], step: [0/13], batch loss: 0.28126, batch accuracy: 90.62, data load time: 1.03632, step time: 0.30562
+epoch: [13], step: [10/13], batch loss: 0.17275, batch accuracy: 93.75, data load time: 0.00201, step time: 0.30196
+epoch: [14], step: [7/13], batch loss: 0.16636, batch accuracy: 95.31, data load time: 0.00202, step time: 0.30201
+Get all class accuracies
+validation loss: 0.38158, accuracy: 85.75
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.9615384615384616), (1, 0.6875), (2, 0.8928571428571429), (3, 0.88), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.7619047619047619), (7, 0.8695652173913043), (8, 0.5), (9, 1.0), (10, 1.0), (11, 0.9047619047619048), (12, 0.48148148148148145), (13, 0.9230769230769231), (14, 0.9545454545454546)])
+Confussion matrix: [[25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0. 11.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4.  1.]
+ [ 0.  0. 25.  0.  0.  0.  1.  0.  0.  0.  0.  0.  0.  2.  0.]
+ [ 0.  1.  0. 22.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  2.  0.  0.  0. 16.  0.  1.  2.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 20.  0.  0.  3.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  1.  2.  9.  3.  0.  0.  0.  2.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 19.  1.  0.  0.]
+ [ 1.  0.  0.  0.  1.  1.  0.  0.  0.  0.  0. 11. 13.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0. 21.]]
+Improvement, weights saved
+epoch: [15], step: [4/13], batch loss: 0.13912, batch accuracy: 96.88, data load time: 0.00216, step time: 0.30172
+epoch: [16], step: [1/13], batch loss: 0.09923, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30203
+epoch: [16], step: [11/13], batch loss: 0.21892, batch accuracy: 93.75, data load time: 0.00210, step time: 0.30202
+epoch: [17], step: [8/13], batch loss: 0.11679, batch accuracy: 98.44, data load time: 0.00206, step time: 0.30205
+epoch: [18], step: [5/13], batch loss: 0.12011, batch accuracy: 95.31, data load time: 0.00207, step time: 0.30203
+epoch: [19], step: [2/13], batch loss: 0.13559, batch accuracy: 95.31, data load time: 0.00199, step time: 0.30199
+epoch: [19], step: [12/13], batch loss: 0.14879, batch accuracy: 96.08, data load time: 0.00161, step time: 0.24042
+Get all class accuracies
+validation loss: 0.25541, accuracy: 90.88
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 0.9375), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.8846153846153846), (6, 0.7619047619047619), (7, 0.9565217391304348), (8, 0.6111111111111112), (9, 1.0), (10, 1.0), (11, 0.6666666666666666), (12, 0.9259259259259259), (13, 0.8461538461538461), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 15.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0. 23.  0.  0.  0.  0.  2.  0.  0.  0.  0.]
+ [ 0.  0.  4.  0.  0.  0. 16.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 22.  0.  0.  1.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  3. 11.  2.  0.  0.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 14.  6.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 25.  0.  0.]
+ [ 0.  2.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+Improvement, weights saved
+epoch: [20], step: [9/13], batch loss: 0.13395, batch accuracy: 95.31, data load time: 0.00202, step time: 0.30196
+epoch: [21], step: [6/13], batch loss: 0.03578, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30220
+epoch: [22], step: [3/13], batch loss: 0.06737, batch accuracy: 98.44, data load time: 0.00207, step time: 0.30189
+epoch: [23], step: [0/13], batch loss: 0.06367, batch accuracy: 98.44, data load time: 1.07017, step time: 0.30460
+epoch: [23], step: [10/13], batch loss: 0.05214, batch accuracy: 98.44, data load time: 0.00204, step time: 0.30211
+epoch: [24], step: [7/13], batch loss: 0.04504, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30207
+Get all class accuracies
+validation loss: 0.23445, accuracy: 92.02
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9523809523809523), (7, 1.0), (8, 0.7777777777777778), (9, 1.0), (10, 0.9), (11, 0.6190476190476191), (12, 0.9259259259259259), (13, 0.7307692307692307), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0. 18.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 20.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  2. 14.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  3.  0.  0. 27.  0.  0.  0.  0.]
+ [ 4.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 13.  3.  1.  0.]
+ [ 2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 25.  0.  0.]
+ [ 0.  3.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 19.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+Improvement, weights saved
+epoch: [25], step: [4/13], batch loss: 0.01330, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30202
+epoch: [26], step: [1/13], batch loss: 0.06301, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30253
+epoch: [26], step: [11/13], batch loss: 0.05271, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30210
+epoch: [27], step: [8/13], batch loss: 0.03019, batch accuracy: 100.00, data load time: 0.00219, step time: 0.30209
+epoch: [28], step: [5/13], batch loss: 0.07233, batch accuracy: 98.44, data load time: 0.00209, step time: 0.30326
+epoch: [29], step: [2/13], batch loss: 0.05620, batch accuracy: 98.44, data load time: 0.00205, step time: 0.30188
+epoch: [29], step: [12/13], batch loss: 0.02785, batch accuracy: 100.00, data load time: 0.00169, step time: 0.24076
+Get all class accuracies
+validation loss: 0.20950, accuracy: 92.02
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.8571428571428571), (7, 1.0), (8, 0.6666666666666666), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.6666666666666666), (13, 0.8076923076923077), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0. 18.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  2.  0.  0.  0. 18.  1.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  2. 12.  2.  0.  0.  0.  0.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  1.  0.  0.  0.  0.  0.  0.  7. 18.  0.  0.]
+ [ 0.  3.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 21.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9202279202279202, epoch since last imporvement: 0
+epoch: [30], step: [9/13], batch loss: 0.02201, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30203
+epoch: [31], step: [6/13], batch loss: 0.02081, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30198
+epoch: [32], step: [3/13], batch loss: 0.06041, batch accuracy: 98.44, data load time: 0.00201, step time: 0.30194
+epoch: [33], step: [0/13], batch loss: 0.04017, batch accuracy: 98.44, data load time: 0.97541, step time: 0.30598
+epoch: [33], step: [10/13], batch loss: 0.04099, batch accuracy: 98.44, data load time: 0.00206, step time: 0.30221
+epoch: [34], step: [7/13], batch loss: 0.01284, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30205
+Get all class accuracies
+validation loss: 0.14807, accuracy: 94.30
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 0.9642857142857143), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 0.8333333333333334), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.7777777777777778), (13, 0.8846153846153846), (14, 0.9545454545454546)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 27.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  1.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 15.  0.  0.  0.  0.  2.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  1.  0.  0.  2.  0.  0.  0.  0.  0.  0.  2. 21.  0.  0.]
+ [ 0.  3.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.]
+ [ 0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 21.]]
+Improvement, weights saved
+epoch: [35], step: [4/13], batch loss: 0.01215, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30206
+epoch: [36], step: [1/13], batch loss: 0.00502, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30308
+epoch: [36], step: [11/13], batch loss: 0.00739, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30176
+epoch: [37], step: [8/13], batch loss: 0.00425, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30214
+epoch: [38], step: [5/13], batch loss: 0.00245, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30201
+epoch: [39], step: [2/13], batch loss: 0.00304, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30192
+epoch: [39], step: [12/13], batch loss: 0.00452, batch accuracy: 100.00, data load time: 0.00158, step time: 0.24056
+Get all class accuracies
+validation loss: 0.11220, accuracy: 96.30
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.9615384615384616), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[25.  0.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+Improvement, weights saved
+epoch: [40], step: [9/13], batch loss: 0.00471, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30191
+epoch: [41], step: [6/13], batch loss: 0.00181, batch accuracy: 100.00, data load time: 0.00199, step time: 0.30202
+epoch: [42], step: [3/13], batch loss: 0.00146, batch accuracy: 100.00, data load time: 0.00196, step time: 0.30189
+epoch: [43], step: [0/13], batch loss: 0.00151, batch accuracy: 100.00, data load time: 1.05728, step time: 0.30449
+epoch: [43], step: [10/13], batch loss: 0.00196, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30206
+epoch: [44], step: [7/13], batch loss: 0.00388, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30215
+Get all class accuracies
+validation loss: 0.09266, accuracy: 96.30
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9629629629629629, epoch since last imporvement: 5
+epoch: [45], step: [4/13], batch loss: 0.00218, batch accuracy: 100.00, data load time: 0.00200, step time: 0.30271
+epoch: [46], step: [1/13], batch loss: 0.00186, batch accuracy: 100.00, data load time: 0.00214, step time: 0.30202
+epoch: [46], step: [11/13], batch loss: 0.00147, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30220
+epoch: [47], step: [8/13], batch loss: 0.00167, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30169
+epoch: [48], step: [5/13], batch loss: 0.00141, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30190
+epoch: [49], step: [2/13], batch loss: 0.00182, batch accuracy: 100.00, data load time: 0.00215, step time: 0.30203
+epoch: [49], step: [12/13], batch loss: 0.00141, batch accuracy: 100.00, data load time: 0.00168, step time: 0.24060
+Get all class accuracies
+validation loss: 0.11736, accuracy: 96.87
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 1.0), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0. 18.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+Improvement, weights saved
+epoch: [50], step: [9/13], batch loss: 0.00185, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30190
+epoch: [51], step: [6/13], batch loss: 0.00104, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30185
+epoch: [52], step: [3/13], batch loss: 0.00106, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30196
+epoch: [53], step: [0/13], batch loss: 0.00102, batch accuracy: 100.00, data load time: 0.98548, step time: 0.30536
+epoch: [53], step: [10/13], batch loss: 0.00079, batch accuracy: 100.00, data load time: 0.00223, step time: 0.30214
+epoch: [54], step: [7/13], batch loss: 0.00091, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30273
+Get all class accuracies
+validation loss: 0.10656, accuracy: 96.87
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 1.0), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0. 18.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 10
+epoch: [55], step: [4/13], batch loss: 0.00257, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30214
+epoch: [56], step: [1/13], batch loss: 0.00061, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30217
+epoch: [56], step: [11/13], batch loss: 0.00069, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30215
+epoch: [57], step: [8/13], batch loss: 0.00116, batch accuracy: 100.00, data load time: 0.00224, step time: 0.30207
+epoch: [58], step: [5/13], batch loss: 0.00069, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30214
+epoch: [59], step: [2/13], batch loss: 0.00217, batch accuracy: 100.00, data load time: 0.00196, step time: 0.30224
+epoch: [59], step: [12/13], batch loss: 0.00055, batch accuracy: 100.00, data load time: 0.00174, step time: 0.24071
+Get all class accuracies
+validation loss: 0.09751, accuracy: 96.87
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 0.9666666666666667), (11, 0.9523809523809523), (12, 0.9629629629629629), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1.  0.  0. 29.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. 26.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 15
+epoch: [60], step: [9/13], batch loss: 0.00069, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30192
+epoch: [61], step: [6/13], batch loss: 0.00073, batch accuracy: 100.00, data load time: 0.00199, step time: 0.30209
+epoch: [62], step: [3/13], batch loss: 0.00062, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30223
+epoch: [63], step: [0/13], batch loss: 0.00059, batch accuracy: 100.00, data load time: 1.02585, step time: 0.30935
+epoch: [63], step: [10/13], batch loss: 0.00091, batch accuracy: 100.00, data load time: 0.00250, step time: 0.30203
+epoch: [64], step: [7/13], batch loss: 0.00070, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30216
+Get all class accuracies
+validation loss: 0.09251, accuracy: 96.30
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 20
+epoch: [65], step: [4/13], batch loss: 0.00053, batch accuracy: 100.00, data load time: 0.00310, step time: 0.30303
+epoch: [66], step: [1/13], batch loss: 0.00041, batch accuracy: 100.00, data load time: 0.00226, step time: 0.30210
+epoch: [66], step: [11/13], batch loss: 0.00036, batch accuracy: 100.00, data load time: 0.00199, step time: 0.30205
+epoch: [67], step: [8/13], batch loss: 0.00050, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30205
+epoch: [68], step: [5/13], batch loss: 0.00091, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30210
+epoch: [69], step: [2/13], batch loss: 0.00051, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30208
+epoch: [69], step: [12/13], batch loss: 0.00054, batch accuracy: 100.00, data load time: 0.00162, step time: 0.24047
+Get all class accuracies
+validation loss: 0.08970, accuracy: 96.58
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 25
+epoch: [70], step: [9/13], batch loss: 0.00047, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30173
+epoch: [71], step: [6/13], batch loss: 0.00038, batch accuracy: 100.00, data load time: 0.00234, step time: 0.30238
+epoch: [72], step: [3/13], batch loss: 0.00027, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30206
+epoch: [73], step: [0/13], batch loss: 0.00040, batch accuracy: 100.00, data load time: 1.09033, step time: 0.30474
+epoch: [73], step: [10/13], batch loss: 0.00067, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30205
+epoch: [74], step: [7/13], batch loss: 0.00081, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30205
+Get all class accuracies
+validation loss: 0.09755, accuracy: 96.30
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 30
+epoch: [75], step: [4/13], batch loss: 0.00043, batch accuracy: 100.00, data load time: 0.00215, step time: 0.30240
+epoch: [76], step: [1/13], batch loss: 0.00025, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30202
+epoch: [76], step: [11/13], batch loss: 0.00043, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30211
+epoch: [77], step: [8/13], batch loss: 0.00027, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30196
+epoch: [78], step: [5/13], batch loss: 0.00032, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30195
+epoch: [79], step: [2/13], batch loss: 0.00020, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30209
+epoch: [79], step: [12/13], batch loss: 0.00107, batch accuracy: 100.00, data load time: 0.00175, step time: 0.24057
+Get all class accuracies
+validation loss: 0.08689, accuracy: 96.30
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 35
+epoch: [80], step: [9/13], batch loss: 0.00075, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30186
+epoch: [81], step: [6/13], batch loss: 0.00024, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30189
+epoch: [82], step: [3/13], batch loss: 0.00037, batch accuracy: 100.00, data load time: 0.00216, step time: 0.30197
+epoch: [83], step: [0/13], batch loss: 0.00060, batch accuracy: 100.00, data load time: 1.12655, step time: 0.30464
+epoch: [83], step: [10/13], batch loss: 0.00026, batch accuracy: 100.00, data load time: 0.00240, step time: 0.30201
+epoch: [84], step: [7/13], batch loss: 0.00030, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30214
+Get all class accuracies
+validation loss: 0.09045, accuracy: 96.58
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9686609686609686, epoch since last imporvement: 40
+epoch: [85], step: [4/13], batch loss: 0.00078, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30192
+epoch: [86], step: [1/13], batch loss: 0.00027, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30213
+epoch: [86], step: [11/13], batch loss: 0.00031, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30202
+epoch: [87], step: [8/13], batch loss: 0.00028, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30184
+epoch: [88], step: [5/13], batch loss: 0.00028, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30201
+epoch: [89], step: [2/13], batch loss: 0.00023, batch accuracy: 100.00, data load time: 0.00212, step time: 0.30202
+epoch: [89], step: [12/13], batch loss: 0.00017, batch accuracy: 100.00, data load time: 0.00164, step time: 0.24056
+Get all class accuracies
+validation loss: 0.09817, accuracy: 97.15
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 1.0), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.9259259259259259), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0. 18.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. 25.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+Improvement, weights saved
+epoch: [90], step: [9/13], batch loss: 0.00027, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30207
+epoch: [91], step: [6/13], batch loss: 0.00032, batch accuracy: 100.00, data load time: 0.00217, step time: 0.30201
+epoch: [92], step: [3/13], batch loss: 0.00027, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30238
+epoch: [93], step: [0/13], batch loss: 0.00026, batch accuracy: 100.00, data load time: 1.09948, step time: 0.30470
+epoch: [93], step: [10/13], batch loss: 0.00014, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30196
+epoch: [94], step: [7/13], batch loss: 0.00040, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30199
+Get all class accuracies
+validation loss: 0.09721, accuracy: 96.58
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.9047619047619048), (7, 1.0), (8, 0.9444444444444444), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.9259259259259259), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 17.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. 25.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9715099715099715, epoch since last imporvement: 45
+epoch: [95], step: [4/13], batch loss: 0.00020, batch accuracy: 100.00, data load time: 0.00223, step time: 0.30203
+epoch: [96], step: [1/13], batch loss: 0.00020, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30210
+epoch: [96], step: [11/13], batch loss: 0.00032, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30205
+epoch: [97], step: [8/13], batch loss: 0.00038, batch accuracy: 100.00, data load time: 0.00219, step time: 0.30204
+epoch: [98], step: [5/13], batch loss: 0.00023, batch accuracy: 100.00, data load time: 0.00229, step time: 0.30208
+epoch: [99], step: [2/13], batch loss: 0.00038, batch accuracy: 100.00, data load time: 0.00216, step time: 0.30199
+epoch: [99], step: [12/13], batch loss: 0.00033, batch accuracy: 100.00, data load time: 0.00168, step time: 0.24073
+Get all class accuracies
+validation loss: 0.09383, accuracy: 97.15
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 1.0), (4, 0.9473684210526315), (5, 0.9615384615384616), (6, 0.9047619047619048), (7, 1.0), (8, 1.0), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.8888888888888888), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0. 18.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No overall imporvement over current best 0.9715099715099715, epoch since last imporvement: 50
+epoch: [100], step: [9/13], batch loss: 0.00025, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30194
+epoch: [101], step: [6/13], batch loss: 0.00012, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30389
+epoch: [102], step: [3/13], batch loss: 0.00014, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30188
+epoch: [103], step: [0/13], batch loss: 0.00024, batch accuracy: 100.00, data load time: 1.08591, step time: 0.30435
+epoch: [103], step: [10/13], batch loss: 0.00022, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30211
+epoch: [104], step: [7/13], batch loss: 0.00038, batch accuracy: 100.00, data load time: 0.00200, step time: 0.30203
+Get all class accuracies
+validation loss: 0.08966, accuracy: 96.87
+Get all class accuracies
+All classes accuracy: dict_items([(0, 1.0), (1, 1.0), (2, 1.0), (3, 0.96), (4, 0.9473684210526315), (5, 0.9230769230769231), (6, 0.9047619047619048), (7, 1.0), (8, 1.0), (9, 1.0), (10, 1.0), (11, 0.9523809523809523), (12, 0.9259259259259259), (13, 0.9230769230769231), (14, 1.0)])
+Confussion matrix: [[26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0. 16.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 28.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 18.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  1.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 19.  0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0. 18.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 30.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 20.  1.  0.  0.]
+ [ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. 25.  0.  0.]
+ [ 0.  2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.]]
+No imporvement, using old weights
+No improvement and 100 epochs done, breaking
+epoch: [0], step: [9/19], batch loss: 0.21141, batch accuracy: 93.75, data load time: 0.00208, step time: 0.30199
+epoch: [1], step: [0/19], batch loss: 0.45501, batch accuracy: 75.00, data load time: 1.06996, step time: 0.31562
+epoch: [1], step: [10/19], batch loss: 0.48305, batch accuracy: 81.25, data load time: 0.00237, step time: 0.30229
+epoch: [2], step: [1/19], batch loss: 0.28455, batch accuracy: 90.62, data load time: 0.01566, step time: 0.30213
+epoch: [2], step: [11/19], batch loss: 0.26149, batch accuracy: 90.62, data load time: 0.00197, step time: 0.30184
+epoch: [3], step: [2/19], batch loss: 0.43660, batch accuracy: 82.81, data load time: 0.00206, step time: 0.30182
+epoch: [3], step: [12/19], batch loss: 0.11285, batch accuracy: 95.31, data load time: 0.00204, step time: 0.30199
+epoch: [4], step: [3/19], batch loss: 0.31725, batch accuracy: 89.06, data load time: 0.00206, step time: 0.30203
+epoch: [4], step: [13/19], batch loss: 0.18703, batch accuracy: 95.31, data load time: 0.00205, step time: 0.30199
+Get all class accuracies
+validation loss: 0.91514, accuracy: 77.95
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.8846153846153846), (2, 0.5769230769230769), (3, 0.8076923076923077), (4, 0.9615384615384616), (5, 0.8846153846153846), (6, 0.6538461538461539), (7, 0.9230769230769231), (8, 0.46153846153846156), (9, 1.0), (10, 1.0), (11, 0.6538461538461539), (12, 0.6153846153846154), (13, 0.5384615384615384), (14, 0.8461538461538461)])
+Confussion matrix: [[23.  0.  0.  0.  0.  1.  0.  0.  1.  0.  0.  1.  0.  0.  0.]
+ [ 0. 23.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2.  1.]
+ [ 1.  0. 15.  0.  6.  0.  0.  1.  0.  0.  3.  0.  0.  0.  0.]
+ [ 0.  1.  0. 21.  0.  0.  0.  0.  1.  0.  0.  0.  0.  1.  2.]
+ [ 0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  3.  0.  0.]
+ [ 1.  0.  4.  0.  0.  0. 17.  3.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0. 24.  1.  0.  0.  0.  0.  0.  0.]
+ [ 5.  0.  0.  0.  0.  0.  0.  0. 12.  0.  8.  0.  0.  0.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  3.  0.  0.  0.  0.  0. 17.  6.  0.  0.]
+ [ 2.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2.  6. 16.  0.  0.]
+ [ 0.  0.  6.  0.  0.  0.  0.  2.  0.  1.  0.  0.  0. 14.  3.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.]]
+epoch: [5], step: [4/19], batch loss: 0.15314, batch accuracy: 96.88, data load time: 0.00241, step time: 0.30240
+epoch: [5], step: [14/19], batch loss: 0.06473, batch accuracy: 100.00, data load time: 0.00219, step time: 0.30199
+epoch: [6], step: [5/19], batch loss: 0.05989, batch accuracy: 98.44, data load time: 0.00223, step time: 0.30207
+epoch: [6], step: [15/19], batch loss: 0.07064, batch accuracy: 98.44, data load time: 0.00212, step time: 0.30207
+epoch: [7], step: [6/19], batch loss: 0.04139, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30175
+epoch: [7], step: [16/19], batch loss: 0.06418, batch accuracy: 98.44, data load time: 0.00202, step time: 0.30188
+epoch: [8], step: [7/19], batch loss: 0.05346, batch accuracy: 98.44, data load time: 0.00206, step time: 0.30202
+epoch: [8], step: [17/19], batch loss: 0.06793, batch accuracy: 98.44, data load time: 0.00202, step time: 0.30186
+epoch: [9], step: [8/19], batch loss: 0.05448, batch accuracy: 100.00, data load time: 0.00261, step time: 0.30192
+epoch: [9], step: [18/19], batch loss: 0.07045, batch accuracy: 100.00, data load time: 0.00072, step time: 0.08587
+Get all class accuracies
+validation loss: 0.83508, accuracy: 85.64
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.8846153846153846), (2, 0.8461538461538461), (3, 1.0), (4, 0.9230769230769231), (5, 0.8076923076923077), (6, 0.6538461538461539), (7, 0.9230769230769231), (8, 0.6153846153846154), (9, 1.0), (10, 1.0), (11, 1.0), (12, 0.8461538461538461), (13, 0.5), (14, 0.9615384615384616)])
+Confussion matrix: [[23.  0.  0.  0.  0.  1.  0.  1.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 23.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  4.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0.  0.  2.  0.  0. 21.  0.  0.  1.  0.  0.  1.  1.  0.  0.]
+ [ 0.  0.  5.  0.  0.  0. 17.  4.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 24.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1. 16.  0.  8.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0. 10.  0.  0.  0.  0.  1.  0.  1.  0.  0.  0. 13.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. 25.]]
+epoch: [10], step: [9/19], batch loss: 0.04420, batch accuracy: 98.44, data load time: 0.00209, step time: 0.30203
+epoch: [11], step: [0/19], batch loss: 0.01562, batch accuracy: 100.00, data load time: 1.08442, step time: 0.30444
+epoch: [11], step: [10/19], batch loss: 0.01276, batch accuracy: 100.00, data load time: 0.00229, step time: 0.30310
+epoch: [12], step: [1/19], batch loss: 0.04447, batch accuracy: 98.44, data load time: 0.00212, step time: 0.30204
+epoch: [12], step: [11/19], batch loss: 0.06354, batch accuracy: 96.88, data load time: 0.00209, step time: 0.30195
+epoch: [13], step: [2/19], batch loss: 0.01938, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30189
+epoch: [13], step: [12/19], batch loss: 0.01283, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30211
+epoch: [14], step: [3/19], batch loss: 0.01860, batch accuracy: 100.00, data load time: 0.00199, step time: 0.30196
+epoch: [14], step: [13/19], batch loss: 0.01288, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30183
+Get all class accuracies
+validation loss: 0.97851, accuracy: 83.59
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8461538461538461), (1, 0.9615384615384616), (2, 0.8461538461538461), (3, 0.8461538461538461), (4, 0.9230769230769231), (5, 0.8846153846153846), (6, 0.8846153846153846), (7, 0.8461538461538461), (8, 0.5384615384615384), (9, 1.0), (10, 1.0), (11, 1.0), (12, 0.8846153846153846), (13, 0.15384615384615385), (14, 0.9230769230769231)])
+Confussion matrix: [[22.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  2.  1.  0.  1.  0.  0.  0.  0.]
+ [ 0.  1.  0. 22.  0.  0.  0.  0.  1.  1.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  3.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 23.  0.  2.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 22.  3.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  2.  0. 14.  0.  7.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  3. 23.  0.  0.]
+ [ 0.  6. 10.  0.  0.  0.  2.  1.  1.  1.  0.  0.  0.  4.  1.]
+ [ 0.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1. 24.]]
+epoch: [15], step: [4/19], batch loss: 0.00805, batch accuracy: 100.00, data load time: 0.00216, step time: 0.30215
+epoch: [15], step: [14/19], batch loss: 0.00710, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30207
+epoch: [16], step: [5/19], batch loss: 0.00891, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30190
+epoch: [16], step: [15/19], batch loss: 0.00433, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30206
+epoch: [17], step: [6/19], batch loss: 0.07806, batch accuracy: 98.44, data load time: 0.00209, step time: 0.30300
+epoch: [17], step: [16/19], batch loss: 0.01062, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30200
+epoch: [18], step: [7/19], batch loss: 0.00623, batch accuracy: 100.00, data load time: 0.00198, step time: 0.30188
+epoch: [18], step: [17/19], batch loss: 0.00488, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30164
+epoch: [19], step: [8/19], batch loss: 0.00277, batch accuracy: 100.00, data load time: 0.00198, step time: 0.30235
+epoch: [19], step: [18/19], batch loss: 0.00203, batch accuracy: 100.00, data load time: 0.00060, step time: 0.08585
+Get all class accuracies
+validation loss: 0.89122, accuracy: 87.69
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9615384615384616), (2, 0.8076923076923077), (3, 1.0), (4, 0.9230769230769231), (5, 0.9230769230769231), (6, 0.8461538461538461), (7, 0.9230769230769231), (8, 0.6538461538461539), (9, 1.0), (10, 1.0), (11, 0.8076923076923077), (12, 0.8846153846153846), (13, 0.5384615384615384), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  1.  0.  0.  1.  0.  0.  1.  0.  0.  0.]
+ [ 0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0. 21.  0.  0.  0.  0.  4.  0.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 22.  3.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 24.  1.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  0.  2. 17.  0.  5.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 21.  0.  5.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  3. 23.  0.  0.]
+ [ 0.  1.  8.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 14.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [20], step: [9/19], batch loss: 0.00253, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30204
+epoch: [21], step: [0/19], batch loss: 0.00183, batch accuracy: 100.00, data load time: 1.23208, step time: 0.30479
+epoch: [21], step: [10/19], batch loss: 0.00268, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30199
+epoch: [22], step: [1/19], batch loss: 0.00181, batch accuracy: 100.00, data load time: 0.00226, step time: 0.30206
+epoch: [22], step: [11/19], batch loss: 0.00118, batch accuracy: 100.00, data load time: 0.00220, step time: 0.30205
+epoch: [23], step: [2/19], batch loss: 0.00119, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30240
+epoch: [23], step: [12/19], batch loss: 0.00147, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30197
+epoch: [24], step: [3/19], batch loss: 0.00056, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30198
+epoch: [24], step: [13/19], batch loss: 0.00090, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30200
+Get all class accuracies
+validation loss: 0.93391, accuracy: 86.92
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.7692307692307693), (3, 1.0), (4, 0.9230769230769231), (5, 0.9615384615384616), (6, 0.8846153846153846), (7, 0.8461538461538461), (8, 0.5769230769230769), (9, 1.0), (10, 1.0), (11, 0.8461538461538461), (12, 0.8846153846153846), (13, 0.5384615384615384), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  1.  0.  0.  2.  0.  0.  0.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2.]
+ [ 0.  0. 20.  0.  0.  0.  1.  3.  1.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0.  1.  0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 23.  3.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 22.  3.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  2.  2.  2. 15.  0.  4.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.  0.  4.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  3. 23.  0.  0.]
+ [ 0.  0. 10.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 14.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [25], step: [4/19], batch loss: 0.00163, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30198
+epoch: [25], step: [14/19], batch loss: 0.00076, batch accuracy: 100.00, data load time: 0.00198, step time: 0.30201
+epoch: [26], step: [5/19], batch loss: 0.00096, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30211
+epoch: [26], step: [15/19], batch loss: 0.00122, batch accuracy: 100.00, data load time: 0.00220, step time: 0.30230
+epoch: [27], step: [6/19], batch loss: 0.00099, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30207
+epoch: [27], step: [16/19], batch loss: 0.00055, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30203
+epoch: [28], step: [7/19], batch loss: 0.00057, batch accuracy: 100.00, data load time: 0.00215, step time: 0.30199
+epoch: [28], step: [17/19], batch loss: 0.00088, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30193
+epoch: [29], step: [8/19], batch loss: 0.00073, batch accuracy: 100.00, data load time: 0.00227, step time: 0.30221
+epoch: [29], step: [18/19], batch loss: 0.01236, batch accuracy: 100.00, data load time: 0.00078, step time: 0.08589
+Get all class accuracies
+validation loss: 0.95336, accuracy: 86.67
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.8076923076923077), (3, 0.9230769230769231), (4, 0.9230769230769231), (5, 0.9615384615384616), (6, 0.8846153846153846), (7, 0.8461538461538461), (8, 0.5769230769230769), (9, 1.0), (10, 1.0), (11, 0.8461538461538461), (12, 0.8846153846153846), (13, 0.5384615384615384), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  1.  0.  0.  2.  0.  0.  0.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2.]
+ [ 0.  0. 21.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0. 24.  0.  0.  0.  0.  1.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0.  1.  0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 23.  3.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 22.  3.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  3.  2.  3. 15.  0.  2.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.  0.  4.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  3. 23.  0.  0.]
+ [ 0.  0. 11.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 14.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [30], step: [9/19], batch loss: 0.00457, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30213
+epoch: [31], step: [0/19], batch loss: 0.00225, batch accuracy: 100.00, data load time: 1.05267, step time: 0.30416
+epoch: [31], step: [10/19], batch loss: 0.00682, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30194
+epoch: [32], step: [1/19], batch loss: 0.00175, batch accuracy: 100.00, data load time: 0.00227, step time: 0.30221
+epoch: [32], step: [11/19], batch loss: 0.00309, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30200
+epoch: [33], step: [2/19], batch loss: 0.00192, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30195
+epoch: [33], step: [12/19], batch loss: 0.00226, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30196
+epoch: [34], step: [3/19], batch loss: 0.00416, batch accuracy: 100.00, data load time: 0.00215, step time: 0.30198
+epoch: [34], step: [13/19], batch loss: 0.01641, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30209
+Get all class accuracies
+validation loss: 0.95619, accuracy: 84.36
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8076923076923077), (1, 0.9615384615384616), (2, 0.8076923076923077), (3, 0.9230769230769231), (4, 0.9230769230769231), (5, 0.8846153846153846), (6, 0.8076923076923077), (7, 0.9230769230769231), (8, 0.46153846153846156), (9, 1.0), (10, 1.0), (11, 0.8461538461538461), (12, 0.7692307692307693), (13, 0.5384615384615384), (14, 1.0)])
+Confussion matrix: [[21.  0.  0.  0.  0.  1.  0.  2.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0. 21.  0.  0.  0.  0.  4.  0.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0. 24.  0.  0.  0.  0.  1.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0. 23.  0.  0.  0.  0.  0.  0.  2.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 21.  4.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 24.  1.  0.  0.  0.  0.  0.  0.]
+ [ 4.  0.  0.  0.  0.  0.  1.  4. 12.  0.  4.  0.  0.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 22.  0.  4.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  6. 20.  0.  0.]
+ [ 0.  1.  8.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 14.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [35], step: [4/19], batch loss: 0.00641, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30164
+epoch: [35], step: [14/19], batch loss: 0.04253, batch accuracy: 98.44, data load time: 0.00203, step time: 0.30214
+epoch: [36], step: [5/19], batch loss: 0.07476, batch accuracy: 96.88, data load time: 0.00230, step time: 0.30209
+epoch: [36], step: [15/19], batch loss: 0.07126, batch accuracy: 96.88, data load time: 0.00215, step time: 0.30197
+epoch: [37], step: [6/19], batch loss: 0.15705, batch accuracy: 95.31, data load time: 0.00202, step time: 0.30194
+epoch: [37], step: [16/19], batch loss: 0.06879, batch accuracy: 96.88, data load time: 0.00202, step time: 0.30202
+epoch: [38], step: [7/19], batch loss: 0.02697, batch accuracy: 98.44, data load time: 0.00212, step time: 0.30196
+epoch: [38], step: [17/19], batch loss: 0.04101, batch accuracy: 96.88, data load time: 0.00207, step time: 0.30180
+epoch: [39], step: [8/19], batch loss: 0.01904, batch accuracy: 98.44, data load time: 0.00210, step time: 0.30197
+epoch: [39], step: [18/19], batch loss: 0.16838, batch accuracy: 88.89, data load time: 0.00061, step time: 0.08575
+Get all class accuracies
+validation loss: 1.20255, accuracy: 79.23
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.5769230769230769), (1, 0.9230769230769231), (2, 0.5384615384615384), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 1.0), (6, 0.8461538461538461), (7, 0.9230769230769231), (8, 0.4230769230769231), (9, 1.0), (10, 0.9615384615384616), (11, 0.8846153846153846), (12, 0.34615384615384615), (13, 0.5769230769230769), (14, 1.0)])
+Confussion matrix: [[15.  0.  0.  0.  0.  7.  0.  3.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2.  0.]
+ [ 0.  0. 14.  0.  0.  0.  5.  4.  0.  0.  0.  0.  0.  3.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  1.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 22.  4.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 24.  1.  0.  0.  0.  0.  0.  0.]
+ [ 4.  0.  0.  0.  0.  0.  2.  7. 11.  0.  2.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 23.  0.  3.  0.]
+ [ 0.  0.  0.  0.  0.  4.  0.  1.  0.  0.  0. 12.  9.  0.  0.]
+ [ 0.  0.  7.  0.  0.  1.  0.  3.  0.  0.  0.  0.  0. 15.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [40], step: [9/19], batch loss: 0.07601, batch accuracy: 98.44, data load time: 0.00204, step time: 0.30161
+epoch: [41], step: [0/19], batch loss: 0.02274, batch accuracy: 100.00, data load time: 1.14950, step time: 0.30453
+epoch: [41], step: [10/19], batch loss: 0.00317, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30199
+epoch: [42], step: [1/19], batch loss: 0.00594, batch accuracy: 100.00, data load time: 0.00225, step time: 0.30209
+epoch: [42], step: [11/19], batch loss: 0.01480, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30203
+epoch: [43], step: [2/19], batch loss: 0.04738, batch accuracy: 98.44, data load time: 0.00212, step time: 0.30214
+epoch: [43], step: [12/19], batch loss: 0.00508, batch accuracy: 100.00, data load time: 0.00215, step time: 0.30203
+epoch: [44], step: [3/19], batch loss: 0.02309, batch accuracy: 98.44, data load time: 0.00234, step time: 0.30221
+epoch: [44], step: [13/19], batch loss: 0.00956, batch accuracy: 100.00, data load time: 0.00212, step time: 0.30214
+Get all class accuracies
+validation loss: 0.98997, accuracy: 83.59
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9615384615384616), (2, 0.8076923076923077), (3, 0.8846153846153846), (4, 0.9230769230769231), (5, 0.8076923076923077), (6, 0.7692307692307693), (7, 0.7692307692307693), (8, 0.6538461538461539), (9, 0.9230769230769231), (10, 1.0), (11, 0.8076923076923077), (12, 0.9230769230769231), (13, 0.4230769230769231), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0. 21.  0.  0.  0.  0.  3.  2.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 23.  0.  0.  0.  0.  1.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0. 21.  0.  0.  0.  0.  0.  0.  5.  0.  0.]
+ [ 0.  0.  3.  0.  0.  0. 20.  2.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 20.  5.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  0.  0. 17.  0.  7.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  2.  0.  0. 24.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 21.  5.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  2. 24.  0.  0.]
+ [ 0.  0.  9.  0.  0.  0.  0.  1.  2.  1.  0.  0.  0. 11.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [45], step: [4/19], batch loss: 0.00166, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30187
+epoch: [45], step: [14/19], batch loss: 0.00412, batch accuracy: 100.00, data load time: 0.00221, step time: 0.30221
+epoch: [46], step: [5/19], batch loss: 0.01841, batch accuracy: 100.00, data load time: 0.00199, step time: 0.30200
+epoch: [46], step: [15/19], batch loss: 0.00322, batch accuracy: 100.00, data load time: 0.00214, step time: 0.30196
+epoch: [47], step: [6/19], batch loss: 0.00127, batch accuracy: 100.00, data load time: 0.00200, step time: 0.30205
+epoch: [47], step: [16/19], batch loss: 0.00104, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30197
+epoch: [48], step: [7/19], batch loss: 0.00152, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30213
+epoch: [48], step: [17/19], batch loss: 0.00064, batch accuracy: 100.00, data load time: 0.00196, step time: 0.30170
+epoch: [49], step: [8/19], batch loss: 0.00136, batch accuracy: 100.00, data load time: 0.00199, step time: 0.30199
+epoch: [49], step: [18/19], batch loss: 0.00158, batch accuracy: 100.00, data load time: 0.00066, step time: 0.08584
+Get all class accuracies
+validation loss: 0.91873, accuracy: 87.95
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.8076923076923077), (3, 1.0), (4, 0.9230769230769231), (5, 1.0), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.5384615384615384), (9, 0.9230769230769231), (10, 1.0), (11, 0.9230769230769231), (12, 0.8076923076923077), (13, 0.6538461538461539), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0. 21.  0.  0.  0.  1.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  1.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 2.  0.  0.  0.  0.  1.  2.  1. 14.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  2.  0.  0. 24.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  5. 21.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 17.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [50], step: [9/19], batch loss: 0.00104, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30240
+epoch: [51], step: [0/19], batch loss: 0.00037, batch accuracy: 100.00, data load time: 1.10587, step time: 0.30616
+epoch: [51], step: [10/19], batch loss: 0.00060, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30293
+epoch: [52], step: [1/19], batch loss: 0.00062, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30214
+epoch: [52], step: [11/19], batch loss: 0.00098, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30207
+epoch: [53], step: [2/19], batch loss: 0.00036, batch accuracy: 100.00, data load time: 0.00272, step time: 0.30213
+epoch: [53], step: [12/19], batch loss: 0.00065, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30198
+epoch: [54], step: [3/19], batch loss: 0.00032, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30232
+epoch: [54], step: [13/19], batch loss: 0.00093, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30200
+Get all class accuracies
+validation loss: 0.94405, accuracy: 87.95
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.8461538461538461), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 1.0), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.5384615384615384), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.5769230769230769), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 2.  0.  0.  0.  0.  1.  2.  3. 14.  0.  4.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 15.  3.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [55], step: [4/19], batch loss: 0.00038, batch accuracy: 100.00, data load time: 0.00220, step time: 0.30218
+epoch: [55], step: [14/19], batch loss: 0.00023, batch accuracy: 100.00, data load time: 0.00212, step time: 0.30211
+epoch: [56], step: [5/19], batch loss: 0.00015, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30208
+epoch: [56], step: [15/19], batch loss: 0.00061, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30248
+epoch: [57], step: [6/19], batch loss: 0.00029, batch accuracy: 100.00, data load time: 0.00223, step time: 0.30394
+epoch: [57], step: [16/19], batch loss: 0.00048, batch accuracy: 100.00, data load time: 0.00288, step time: 0.30234
+epoch: [58], step: [7/19], batch loss: 0.00044, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30193
+epoch: [58], step: [17/19], batch loss: 0.00025, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30194
+epoch: [59], step: [8/19], batch loss: 0.00022, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30198
+epoch: [59], step: [18/19], batch loss: 0.00023, batch accuracy: 100.00, data load time: 0.00071, step time: 0.08598
+Get all class accuracies
+validation loss: 0.95007, accuracy: 88.46
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.8461538461538461), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 1.0), (6, 0.9230769230769231), (7, 0.8461538461538461), (8, 0.5769230769230769), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.6538461538461539), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 22.  3.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  2.  1. 15.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  6.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 17.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [60], step: [9/19], batch loss: 0.00026, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30198
+epoch: [61], step: [0/19], batch loss: 0.00030, batch accuracy: 100.00, data load time: 1.16138, step time: 0.30460
+epoch: [61], step: [10/19], batch loss: 0.00029, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30179
+epoch: [62], step: [1/19], batch loss: 0.00017, batch accuracy: 100.00, data load time: 0.00218, step time: 0.30199
+epoch: [62], step: [11/19], batch loss: 0.00051, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30182
+epoch: [63], step: [2/19], batch loss: 0.00119, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30208
+epoch: [63], step: [12/19], batch loss: 0.00066, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30194
+epoch: [64], step: [3/19], batch loss: 0.00037, batch accuracy: 100.00, data load time: 0.00223, step time: 0.30202
+epoch: [64], step: [13/19], batch loss: 0.00054, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30200
+Get all class accuracies
+validation loss: 0.98452, accuracy: 87.95
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9615384615384616), (2, 0.8461538461538461), (3, 0.8846153846153846), (4, 0.9230769230769231), (5, 1.0), (6, 0.8846153846153846), (7, 0.8076923076923077), (8, 0.5769230769230769), (9, 1.0), (10, 1.0), (11, 0.9230769230769231), (12, 0.8076923076923077), (13, 0.6923076923076923), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 23.  0.  0.  0.  0.  1.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 23.  3.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0. 21.  4.  0.  0.  0.  0.  0.  0.]
+ [ 2.  0.  0.  0.  0.  2.  1.  3. 15.  0.  3.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  5. 21.  0.  0.]
+ [ 0.  0.  6.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 18.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [65], step: [4/19], batch loss: 0.02916, batch accuracy: 98.44, data load time: 0.00232, step time: 0.30205
+epoch: [65], step: [14/19], batch loss: 0.00091, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30207
+epoch: [66], step: [5/19], batch loss: 0.00067, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30195
+epoch: [66], step: [15/19], batch loss: 0.00094, batch accuracy: 100.00, data load time: 0.00216, step time: 0.30199
+epoch: [67], step: [6/19], batch loss: 0.00037, batch accuracy: 100.00, data load time: 0.00245, step time: 0.30253
+epoch: [67], step: [16/19], batch loss: 0.00039, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30210
+epoch: [68], step: [7/19], batch loss: 0.00016, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30201
+epoch: [68], step: [17/19], batch loss: 0.00075, batch accuracy: 100.00, data load time: 0.00207, step time: 0.30223
+epoch: [69], step: [8/19], batch loss: 0.00053, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30192
+epoch: [69], step: [18/19], batch loss: 0.00087, batch accuracy: 100.00, data load time: 0.00068, step time: 0.08591
+Get all class accuracies
+validation loss: 0.99774, accuracy: 87.44
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.8461538461538461), (3, 1.0), (4, 0.9230769230769231), (5, 1.0), (6, 0.8846153846153846), (7, 0.8846153846153846), (8, 0.5769230769230769), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8076923076923077), (13, 0.5), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 2.  0.  0.  0.  0.  1.  1.  1. 15.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  5. 21.  0.  0.]
+ [ 0.  0.  8.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 13.  4.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [70], step: [9/19], batch loss: 0.00020, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30207
+epoch: [71], step: [0/19], batch loss: 0.00034, batch accuracy: 100.00, data load time: 1.07840, step time: 0.30463
+epoch: [71], step: [10/19], batch loss: 0.00017, batch accuracy: 100.00, data load time: 0.00196, step time: 0.30185
+epoch: [72], step: [1/19], batch loss: 0.00017, batch accuracy: 100.00, data load time: 0.00216, step time: 0.30213
+epoch: [72], step: [11/19], batch loss: 0.00023, batch accuracy: 100.00, data load time: 0.00270, step time: 0.30386
+epoch: [73], step: [2/19], batch loss: 0.00014, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30224
+epoch: [73], step: [12/19], batch loss: 0.00013, batch accuracy: 100.00, data load time: 0.00198, step time: 0.30202
+epoch: [74], step: [3/19], batch loss: 0.00042, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30205
+epoch: [74], step: [13/19], batch loss: 0.00029, batch accuracy: 100.00, data load time: 0.00217, step time: 0.30215
+Get all class accuracies
+validation loss: 0.99572, accuracy: 88.21
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.7692307692307693), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 1.0), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.6153846153846154), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.6153846153846154), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0. 20.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  2.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  1.  1. 16.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 16.  2.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [75], step: [4/19], batch loss: 0.00026, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30204
+epoch: [75], step: [14/19], batch loss: 0.00029, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30205
+epoch: [76], step: [5/19], batch loss: 0.00034, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30184
+epoch: [76], step: [15/19], batch loss: 0.00028, batch accuracy: 100.00, data load time: 0.00196, step time: 0.30209
+epoch: [77], step: [6/19], batch loss: 0.00028, batch accuracy: 100.00, data load time: 0.00212, step time: 0.30188
+epoch: [77], step: [16/19], batch loss: 0.00011, batch accuracy: 100.00, data load time: 0.00211, step time: 0.30207
+epoch: [78], step: [7/19], batch loss: 0.00037, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30193
+epoch: [78], step: [17/19], batch loss: 0.00039, batch accuracy: 100.00, data load time: 0.00225, step time: 0.30206
+epoch: [79], step: [8/19], batch loss: 0.00027, batch accuracy: 100.00, data load time: 0.00196, step time: 0.30192
+epoch: [79], step: [18/19], batch loss: 0.00025, batch accuracy: 100.00, data load time: 0.00060, step time: 0.08569
+Get all class accuracies
+validation loss: 1.01144, accuracy: 88.46
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 1.0), (2, 0.7307692307692307), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 1.0), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.6153846153846154), (9, 0.9615384615384616), (10, 1.0), (11, 0.9615384615384616), (12, 0.8461538461538461), (13, 0.5769230769230769), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 19.  0.  0.  0.  1.  3.  1.  0.  0.  0.  0.  2.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  1.  1. 16.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 25.  0.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 15.  3.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [80], step: [9/19], batch loss: 0.00026, batch accuracy: 100.00, data load time: 0.00216, step time: 0.30207
+epoch: [81], step: [0/19], batch loss: 0.00013, batch accuracy: 100.00, data load time: 1.10201, step time: 0.30458
+epoch: [81], step: [10/19], batch loss: 0.00012, batch accuracy: 100.00, data load time: 0.00205, step time: 0.30196
+epoch: [82], step: [1/19], batch loss: 0.00017, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30189
+epoch: [82], step: [11/19], batch loss: 0.00059, batch accuracy: 100.00, data load time: 0.00212, step time: 0.30196
+epoch: [83], step: [2/19], batch loss: 0.00018, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30188
+epoch: [83], step: [12/19], batch loss: 0.00018, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30201
+epoch: [84], step: [3/19], batch loss: 0.00024, batch accuracy: 100.00, data load time: 0.00217, step time: 0.30206
+epoch: [84], step: [13/19], batch loss: 0.00019, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30218
+Get all class accuracies
+validation loss: 1.00715, accuracy: 88.97
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 1.0), (2, 0.8461538461538461), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 1.0), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.6153846153846154), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.5769230769230769), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  1.  1. 16.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 15.  3.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [85], step: [4/19], batch loss: 0.00016, batch accuracy: 100.00, data load time: 0.00208, step time: 0.30212
+epoch: [85], step: [14/19], batch loss: 0.00010, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30182
+epoch: [86], step: [5/19], batch loss: 0.00026, batch accuracy: 100.00, data load time: 0.00212, step time: 0.30293
+epoch: [86], step: [15/19], batch loss: 0.00011, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30189
+epoch: [87], step: [6/19], batch loss: 0.00012, batch accuracy: 100.00, data load time: 0.00214, step time: 0.30184
+epoch: [87], step: [16/19], batch loss: 0.00005, batch accuracy: 100.00, data load time: 0.00206, step time: 0.30201
+epoch: [88], step: [7/19], batch loss: 0.00026, batch accuracy: 100.00, data load time: 0.00220, step time: 0.30197
+epoch: [88], step: [17/19], batch loss: 0.00023, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30199
+epoch: [89], step: [8/19], batch loss: 0.00019, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30197
+epoch: [89], step: [18/19], batch loss: 0.00012, batch accuracy: 100.00, data load time: 0.00067, step time: 0.08589
+Get all class accuracies
+validation loss: 0.96853, accuracy: 88.21
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.8846153846153846), (2, 0.8461538461538461), (3, 0.9230769230769231), (4, 0.9230769230769231), (5, 0.9615384615384616), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.6153846153846154), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.6538461538461539), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 23.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  3.  0.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  0.  1.  0.  1.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  1.  3. 16.  0.  4.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 17.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [90], step: [9/19], batch loss: 0.00022, batch accuracy: 100.00, data load time: 0.00204, step time: 0.30189
+epoch: [91], step: [0/19], batch loss: 0.00032, batch accuracy: 100.00, data load time: 1.09418, step time: 0.30475
+epoch: [91], step: [10/19], batch loss: 0.00014, batch accuracy: 100.00, data load time: 0.00197, step time: 0.30198
+epoch: [92], step: [1/19], batch loss: 0.00028, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30187
+epoch: [92], step: [11/19], batch loss: 0.00029, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30197
+epoch: [93], step: [2/19], batch loss: 0.00008, batch accuracy: 100.00, data load time: 0.00202, step time: 0.30203
+epoch: [93], step: [12/19], batch loss: 0.00010, batch accuracy: 100.00, data load time: 0.00203, step time: 0.30194
+epoch: [94], step: [3/19], batch loss: 0.00008, batch accuracy: 100.00, data load time: 0.00214, step time: 0.30309
+epoch: [94], step: [13/19], batch loss: 0.00010, batch accuracy: 100.00, data load time: 0.00215, step time: 0.30218
+Get all class accuracies
+validation loss: 1.01309, accuracy: 88.97
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9230769230769231), (2, 0.8461538461538461), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 0.9615384615384616), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.6538461538461539), (9, 0.9615384615384616), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.6538461538461539), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 24.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.]
+ [ 0.  0. 22.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  0.  1. 17.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.  0. 25.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  0.  0.  0.  0. 17.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
+epoch: [95], step: [4/19], batch loss: 0.00009, batch accuracy: 100.00, data load time: 0.00218, step time: 0.30205
+epoch: [95], step: [14/19], batch loss: 0.00012, batch accuracy: 100.00, data load time: 0.00201, step time: 0.30203
+epoch: [96], step: [5/19], batch loss: 0.00010, batch accuracy: 100.00, data load time: 0.00224, step time: 0.30373
+epoch: [96], step: [15/19], batch loss: 0.00013, batch accuracy: 100.00, data load time: 0.00214, step time: 0.30204
+epoch: [97], step: [6/19], batch loss: 0.00010, batch accuracy: 100.00, data load time: 0.00209, step time: 0.30244
+epoch: [97], step: [16/19], batch loss: 0.00007, batch accuracy: 100.00, data load time: 0.00220, step time: 0.30214
+epoch: [98], step: [7/19], batch loss: 0.00015, batch accuracy: 100.00, data load time: 0.00210, step time: 0.30191
+epoch: [98], step: [17/19], batch loss: 0.00015, batch accuracy: 100.00, data load time: 0.00213, step time: 0.30239
+epoch: [99], step: [8/19], batch loss: 0.00012, batch accuracy: 100.00, data load time: 0.00231, step time: 0.30209
+epoch: [99], step: [18/19], batch loss: 0.00034, batch accuracy: 100.00, data load time: 0.00066, step time: 0.08588
+Get all class accuracies
+validation loss: 1.02147, accuracy: 88.97
+Get all class accuracies
+All classes accuracy: dict_items([(0, 0.8846153846153846), (1, 0.9615384615384616), (2, 0.8076923076923077), (3, 0.9615384615384616), (4, 0.9230769230769231), (5, 0.9615384615384616), (6, 0.9230769230769231), (7, 0.8846153846153846), (8, 0.6538461538461539), (9, 1.0), (10, 1.0), (11, 0.9230769230769231), (12, 0.8461538461538461), (13, 0.6153846153846154), (14, 1.0)])
+Confussion matrix: [[23.  0.  0.  0.  0.  2.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0. 25.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0. 21.  0.  0.  0.  0.  3.  1.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0. 24.  0.  0.  0.  0.  0.  0.  2.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0. 25.  0.  0.  0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. 24.  2.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0. 23.  2.  0.  0.  0.  0.  0.  0.]
+ [ 1.  0.  0.  0.  0.  1.  0.  1. 17.  0.  6.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 24.  1.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  4. 22.  0.  0.]
+ [ 0.  0.  7.  0.  0.  0.  0.  1.  0.  1.  0.  0.  0. 16.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. 26.]]
