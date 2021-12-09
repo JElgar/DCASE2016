@@ -3,12 +3,13 @@ import time
 from multiprocessing import cpu_count
 from typing import Union, NamedTuple
 import math
-
 import torch
 from torch._C import Size, wait
 import torch.backends.cudnn
+from torch import Tensor
 from torch.utils.data.dataset import Dataset
 import numpy as np
+import numpy
 import pandas as pd
 from torch import nn, optim
 from torch.nn import functional as F
@@ -41,7 +42,8 @@ parser.add_argument(
 )
 parser.add_argument(
     "--epochs",
-    default=200,
+    # default=200,
+    default=100,
     type=int,
     help="Number of epochs (passes through the entire dataset) to train for",
 )
@@ -164,7 +166,8 @@ def main(args):
         pin_memory=True,
     )
 
-    optimizer = torch.optim.Adam(model.parameters(), 1e-4)
+    # Set full training learning rate
+    # optimizer = torch.optim.Adam(model.parameters(), 1e-4)
 
     full_trainer = FullTrainer(
         model,
@@ -183,7 +186,6 @@ def main(args):
         log_frequency=args.log_frequency,
     )
 
-    torch.save(model.state_dict(), "output_weights")
     summary_writer.close()
 
 
@@ -269,10 +271,12 @@ class CNN(nn.Module):
             padding=(2, 2),
         )
         self.initialise_layer(self.conv2)
-        self.pool2 = nn.AdaptiveMaxPool2d((12, 1))
+        # self.pool2 = nn.AdaptiveMaxPool2d((12, 1))
+        self.pool2 = nn.AdaptiveMaxPool2d((4, 1))
 
         # 1 layer
-        self.fc1 = nn.Linear(3072, self.class_count)
+        # self.fc1 = nn.Linear(3072, self.class_count)
+        self.fc1 = nn.Linear(1024, self.class_count)
         self.initialise_layer(self.fc1)
 
         # 2 layers
@@ -366,7 +370,7 @@ class Trainer:
             f"{self.training_name}_time/data", data_load_time, self.step
         )
         self.summary_writer.add_scalar(
-            f"{self.training_name}_time/data", step_time, self.step
+            f"{self.training_name}_time/step", step_time, self.step
         )
 
     def validate(self) -> float:
@@ -417,8 +421,18 @@ class Trainer:
         print(
             f"All classes accuracy: {all_classes_accuracy(np.array(results['labels']), np.array(results['preds'])).items()}"
         )
+        self.confusion_matrix_data = self.confusion_matrix(
+            Tensor(results["labels"]), Tensor(results["preds"])
+        )
+        print(f"Confussion matrix: {self.confusion_matrix_data}")
 
         return accuracy
+
+    def confusion_matrix(self, labels, preds):
+        confusion_matrix = torch.zeros(CLASS_COUNT, CLASS_COUNT)
+        for t, p in zip(labels.view(-1), preds.view(-1)):
+            confusion_matrix[t.long(), p.long()] += 1
+        return np.array(confusion_matrix)
 
 
 class NonFullTrainer(Trainer):
@@ -539,6 +553,7 @@ class FullTrainer(Trainer):
         start_epoch: int = 0,
     ):
         self.model.train()
+        current_best_accuracy = 0
         for epoch in range(start_epoch, epochs):
             self.model.train()
             data_load_start_time = time.time()
@@ -591,7 +606,11 @@ class FullTrainer(Trainer):
                 f"{self.training_name}_epoch", epoch, self.step
             )
             if ((epoch + 1) % val_frequency) == 0:
-                self.validate()
+                accuary = self.validate()
+                if accuary > current_best_accuracy:
+                    torch.save(self.model.state_dict(), "output_weights")
+                    numpy.save("output_confusion_matrix", self.confusion_matrix_data)
+
                 # self.validate() will put the model in validation mode,
                 # so we have to switch back to train mode afterwards
                 self.model.train()
@@ -624,6 +643,7 @@ def class_accuracy(
     actual_number_of_class = (labels == class_mask).sum()
     if actual_number_of_class == 0:
         return float(-1)
+
     return float(((labels == preds) & (labels == class_mask)).sum()) / float(
         actual_number_of_class
     )

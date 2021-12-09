@@ -35,6 +35,9 @@ Fix stuff
 5216811 - 12 frequency bands 1e-4 learning rate full training removed relu 200 full train epohs
 5216891 - 12 frequency bands 1e-4 learning rate full training removed relu 100 full train epohs
 5216924 - 12 frequency bands 1e-3 learning rate full training removed relu 100 full train epohs
+5216978 - 12 frequency bands 1e-4 learning rate full training removed relu 200 full train epohs
+
+5216997 - Baseline 
 
 
 
